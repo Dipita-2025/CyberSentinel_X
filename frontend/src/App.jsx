@@ -1,16 +1,14 @@
 import { useState } from "react";
-import heroImg from "./assets/hero.png";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
 import "./App.css";
+import { Outlet } from "react-router";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <p>dipuraj</p>
-    </>
+    <div className="w-full  h-full min-h-screen">
+      <Outlet />
+    </div>
   );
 }
 
