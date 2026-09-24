@@ -2,17 +2,23 @@
 :root {
   --text: #ffffff;
   --text-h: #ffffff;
-  --bg: #000000;
+  --bg: #0a1a33;
   --text-sec: #94a3b8;
-  --button: #246beb;
   --border: #1e293b;
-  --accent: #246beb;
 
+  --button: #1f64ff;
+  --accent: #1f64ff;
   --accent-bg: #0e131f;
-  --accent-border: rgba(170, 59, 255, 0.5);
+  --accent-border: #08426f;
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --header-gradient: linear-gradient(
+    180deg,
+    rgba(201, 201, 201, 0.16) 0%,
+    rgba(199, 199, 199, 0.25) 100%
+  );
 
   --sans: system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
@@ -59,9 +65,10 @@
 /* body {
   margin: 0;
 }
+*/
 
-#root {
-  width: 1126px;
+/* #root {
+  width: 100vw;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -70,5 +77,22 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+} */
+
+@utility bg-header {
+  background: var(--header-gradient);
 }
- */
+
+@utility text-xxs {
+  font-size: 0.6rem;
+}
+@utility text-md {
+  font-size: 0.925rem;
+}
+@utility sep-card {
+  @apply relative after:absolute after:right-0 after:top-1/2 after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-(--border) last:after:hidden;
+}
+
+@utility bg-center-right {
+  background-position: 65% 20%;
+}

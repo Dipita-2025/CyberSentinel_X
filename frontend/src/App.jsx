@@ -6,7 +6,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="w-full  h-full min-h-screen">
+    <div className="w-full  h-full min-h-screen overflow-x-clip">
       <Outlet />
     </div>
   );

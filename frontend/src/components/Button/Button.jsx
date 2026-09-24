@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { LoaderCircle } from "lucide-react";
 
-function Button({ label = "button", onClickFunction, className = "" }) {
-  const [processing, setProcessing] = useState(true);
-
+function Button({ label = "button", onClickFunction, className = "", Icon }) {
+  const [processing, setProcessing] = useState(false);
   const handleClick = async (event) => {
     setProcessing(true);
     try {
@@ -14,20 +13,26 @@ function Button({ label = "button", onClickFunction, className = "" }) {
   };
 
   return (
-    <div className="w-full max-w-80">
+    <div className="w-full ">
       <button
         disabled={processing}
         aria-busy={processing}
-        className={`h-11 bg-(--button) text-(--text) w-full  rounded-md border-0 outline-0 flex justify-center items-center`}
+        key={label}
+        className={` h-10 bg-(--button) text-base font-semibold text-(--text) w-full min-w-35  rounded-md border-0 outline-0 flex justify-center items-center ${className} p-2`}
         onClick={handleClick}
       >
         {processing ? (
+          // processing text
           <span className="inline-flex min-w-0 items-center justify-center gap-2">
             <LoaderCircle className="animate-spin" />
             <span className="truncate block ">Processing</span>
           </span>
         ) : (
-          <span className="">{label}</span>
+          // default texts
+          <span className="flex gap-2 justify-center items-center text-nowrap">
+            {label}
+            {Icon && <Icon size={20} strokeWidth={3} />}
+          </span>
         )}
       </button>
     </div>
