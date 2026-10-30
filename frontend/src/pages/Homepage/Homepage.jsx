@@ -199,14 +199,14 @@ function Homepage() {
         </div>
 
         {/* stats */}
-        <div className="w-full h-fit bg-(--bg) p-3 border border-(--border) rounded-md hidden md:flex justify-between flex-wrap gap-5 lg:gap-0">
+        <div className="w-full h-fit bg-(--accent-bg) p-3 border border-(--border) rounded-md hidden md:flex justify-between flex-wrap gap-5 lg:gap-0">
           {stats.map((stat) => (
             // stat
             <div
               key={stat.text}
               className="w-[48%] lg:w-[23%] px-3 lg:px-0 flex gap-3 items-center justify-start lg:justify-center lg:sep-card "
             >
-              <div className="p-2 border-2 rounded-full border-(--accent-border) bg-(--accent-bg) ">
+              <div className="p-2 border-2 rounded-full border-(--accent-border) bg-(--bg) ">
                 <stat.icon className="text-(--accent)" size={20} />
               </div>
 

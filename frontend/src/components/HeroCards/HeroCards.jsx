@@ -4,11 +4,11 @@ function HeroCards({ Icon, heading, text, className = "" }) {
   // dom
   return (
     <div
-      className={`w-full h-full bg-(--bg) border-2 rounded-lg p-2 border-(--border) flex gap-3  ${className.trim()}`}
+      className={`w-full h-full bg-(--accent-bg) border-2 rounded-lg p-2 border-(--border) flex gap-3  ${className.trim()}`}
     >
       {/* card icon */}
       {Icon && (
-        <div className="p-3 w-fit shrink-0 rounded-lg bg-(--accent-bg) border-0 border-(--accent)">
+        <div className="p-3 w-fit shrink-0 rounded-lg bg-(--bg) border-0 border-(--accent)">
           <Icon size={24} className="text-(--accent)" />
         </div>
       )}

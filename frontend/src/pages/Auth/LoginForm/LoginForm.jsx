@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { Button, Input } from "../../../components";
 import { Mail, Lock, EyeOff, Eye, Key, ArrowRight } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { login } from "../../../store/authSlice";
 
 function LoginForm() {
   const [showPass, setShowPass] = useState(false);
   const [user, setUser] = useState({ email: "", password: "", mfa: "" });
+  const navigate = useNavigate();
+  const dispatcher = useDispatch();
 
   const onLogin = async () => {
     console.log(user);
+    navigate("/dashboard");
+    dispatcher(login(user));
   };
 
   // dom

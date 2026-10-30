@@ -2,13 +2,23 @@
 :root {
   --text: #ffffff;
   --text-h: #ffffff;
-  --bg: #0a1a33;
+  --bg: #0e131f;
+  --bg-sec: #14192a;
+  --accent-bg: #101931;
   --text-sec: #94a3b8;
   --border: #1e293b;
-
+  --critical: #ff4d4f;
+  --high: #ff9c6e;
+  --medium: #ffd666;
+  --low: #1f64ff;
   --button: #1f64ff;
   --accent: #1f64ff;
-  --accent-bg: #0e131f;
+  --accent-select: #2d3748;
+  --green: #00ff66;
+  --red: #ff9c6e;
+  --live-bg: rgba(16, 185, 129, 0.1255);
+  --live-border: rgba(16, 185, 129, 0.251);
+  --bg-sec: #151d2a;
   --accent-border: #08426f;
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
@@ -24,7 +34,7 @@
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
+  font: 18px/80% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
@@ -85,6 +95,7 @@
 
 @utility text-xxs {
   font-size: 0.6rem;
+  line-height:;
 }
 @utility text-md {
   font-size: 0.925rem;
