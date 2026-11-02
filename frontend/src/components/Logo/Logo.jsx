@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
-function Logo({ height = "h-10" }) {
+function Logo({ height = "h-12" }) {
   const navigate = useNavigate();
   // const isLogin = useSelector((state) => state.auth.isLogin);
   const isLogin = false;
@@ -10,18 +10,18 @@ function Logo({ height = "h-10" }) {
   // logo
   return (
     <div
-      className={`@container w-full flex justify-start items-center ${height.trim()}`}
+      className={`@container w-full ${height.trim()} max-w-50 flex justify-start items-center gap-2`}
       onClick={() => (isLogin ? navigate("/login") : navigate("/"))}
     >
       {/* logo image */}
-      <div className="bg-[url('/logo.png')]  bg-no-repeat h-10 w-full @min-[12rem]:w-10 bg-contain @min-[12rem]:bg-cover bg-center self-center  aspect-square "></div>
+      <div className="h-10 w-full @min-[12rem]:w-10 bg-[url('/logo.png')] bg-no-repeat bg-contain @min-[12rem]:bg-cover bg-center aspect-square"></div>
 
       {/* logo text */}
-      <div className="text-xl hidden @min-[12rem]:block pl-2">
-        <p className="font-bold ">
-          CyberSentinel <span className="text-(--accent) ">X</span>
+      <div className="text-base xl:text-lg/5 hidden @min-[12rem]:block  ">
+        <p className="font-bold">
+          CyberSentinel&nbsp;<span className="text-(--accent)">X</span>
         </p>
-        <p className=" text-(--text-sec) text-xxs text-nowrap font-semibold">
+        <p className="text-xs text-(--text-sec) font-semibold text-nowrap">
           AI-Powered Security Agent
         </p>
       </div>
