@@ -4,24 +4,24 @@ import { Link } from "react-router";
 
 function Footer() {
   return (
-    <div className="grid gap-4 border-t border-(--border) py-3 md:grid-cols-2 xl:grid-flow-row xl:grid-cols-3 xl:items-center">
+    <footer className="grid gap-5 border-t border-(--border) p-2 md:p-5 md:grid-cols-2 lg:grid-cols-3 items-center">
       {/* logo */}
       <div className="h-fit">
         <Logo />
-        <p className="text-sm text-(--text-sec)  ">
+        <p className="text-xs lg:text-sm text-(--text-sec)">
           &copy; 2026 · All rights reserved.
         </p>
       </div>
 
       {/* link items */}
-      <div className="h-fit xl:col-start-3 xl:row-start-1">
-        <ul className="flex md:justify-center items-center gap-5 text-sm ">
+      <div className="h-fit lg:col-start-3 lg:row-start-1">
+        <ul className="flex items-center gap-2 text-xs lg:text-sm md:justify-end md:gap-5">
           <li>
             <Link
               to="/"
               className="text-(--text-sec) hover:text-(--text) hover:underline"
             >
-              Privecy
+              Privacy
             </Link>
           </li>
           <li>
@@ -44,15 +44,15 @@ function Footer() {
       </div>
 
       {/* footer text */}
-      <div className="h-fit md:col-span-2 xl:col-start-2 xl:col-span-1">
-        <p className="text-sm text-(--text-sec) w-full xl:text-center">
+      <div className="h-fit md:col-span-2 lg:col-start-2 lg:col-span-1">
+        <p className="w-full text-xs md:text-sm text-(--text-sec) xl:text-center">
           AI assists. Analysts stay in control.
         </p>
-        <p className="text-sm text-(--text-sec) w-full xl:text-center">
+        <p className="w-full text-xs lg:text-sm text-(--text-sec) xl:text-center">
           Built for a safer digital world
         </p>
       </div>
-    </div>
+    </footer>
   );
 }
 

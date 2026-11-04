@@ -7,6 +7,7 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import PieChartComponent from "./Charts/PieChart/PieChart";
 import LineGraph from "./Charts/LineGraph/LineGraph";
+import Cards from "./Cards/Cards";
 
 export {
   Input,
@@ -18,4 +19,5 @@ export {
   Footer,
   PieChartComponent,
   LineGraph,
+  Cards,
 };

@@ -12,7 +12,7 @@
   --medium: #ffd666;
   --low: #1f64ff;
   --button: #1f64ff;
-  --accent: #1f64ff;
+  --accent: #00f0ff;
   --accent-select: #2d3748;
   --green: #00ff66;
   --green-bg: #10b98139;
@@ -35,7 +35,7 @@
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/80% var(--sans);
+  font: 16px/80% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
@@ -46,7 +46,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   @media (max-width: 1024px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -105,10 +105,10 @@
 }
 
 @utility text-xxs {
-  font-size: 11px;
+  font-size: 12px;
 }
 @utility text-md {
-  font-size: 0.925rem;
+  font-size: 1.08rem;
 }
 @utility sep-card {
   @apply relative after:absolute after:right-0 after:top-1/2 after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-(--border) last:after:hidden;

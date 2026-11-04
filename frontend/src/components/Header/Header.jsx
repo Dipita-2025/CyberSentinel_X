@@ -1,7 +1,7 @@
 import { Dot, Sparkles } from "lucide-react";
 import React from "react";
 
-function Header({ headeing = "", desc = "", live = false }) {
+function Header({ heading = "", desc = "", live = false }) {
   return (
     <div className="lg:bg-(--accent-bg) lg:border-b lg:border-(--border) flex flex-col lg:flex-row justify-start lg:justify-between items-center">
       {/* header section */}
@@ -9,7 +9,7 @@ function Header({ headeing = "", desc = "", live = false }) {
         {/* header text section and live tag  */}
         <div className="flex flex-col-reverse md:flex-row md:items-center gap-2 md:gap-5">
           {/* heading */}
-          <p className="text-base xl:text-lg font-bold">{headeing}</p>
+          <p className="text-base xl:text-lg font-bold">{heading}</p>
 
           {/* live tag */}
           {live && (

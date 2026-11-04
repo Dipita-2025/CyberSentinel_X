@@ -1,19 +1,29 @@
 import React, { useEffect } from "react";
 import { useOutletContext } from "react-router";
-import { PieChartComponent, Header, LineGraph } from "../../../components";
+import {
+  PieChartComponent,
+  Header,
+  LineGraph,
+  Cards,
+  Footer,
+} from "../../../components";
 import { useSelector } from "react-redux";
+import { Brain } from "lucide-react";
+import PageLayout from "../../../layout/PageLayout";
 
 function Dashboard() {
   const setActivePage = useOutletContext();
   const userData = useSelector((state) => state.auth.userData);
+  const cardData = {
+    value: "100",
+    text: "this",
+    color: "text-green-500",
+  };
+
   const data = [
     {
       intencity: "low",
       value: 20,
-    },
-    {
-      intencity: "extra",
-      value: 80,
     },
     {
       intencity: "midium",
@@ -26,6 +36,10 @@ function Dashboard() {
     {
       intencity: "critical",
       value: 10,
+    },
+    {
+      intencity: "extra",
+      value: 50,
     },
   ];
 
@@ -42,23 +56,40 @@ function Dashboard() {
     setActivePage(0);
   }, []);
 
-  const COLORS = ["#1f64ff", "#00c2ff", "#ffaa00", "#ff4545"];
   return (
-    <div>
-      {/* dashboard header  */}
-      <Header
-        headeing="Cyber Command Center"
-        desc="Comprehensive cognitive threat posture, active cyber metrics, and cognitive mitigation summaries."
-      />
+    <PageLayout
+      heading="Cyber Command Center"
+      desc="Comprehensive cognitive threat posture, active cyber metrics, and cognitive mitigation summaries."
+      live={true}
+    >
+      {/* page content */}
 
-      {/* pie chart */}
-      <div>
-        <PieChartComponent data={data} />
+      {/* summary */}
+      <div className="w-full bg-(--accent-bg) p-2 md:p-5 border border-(--border) rounded-md flex items-center justify-around gap-5">
+        <div className="p-2 bg-[#00f0ff33] border border-(--accent) rounded-md hidden xl:block ">
+          <Brain size={35} className="text-(--accent)" />
+        </div>
+        <div className="w-full">
+          <h2 className="text-md lg:text-xl text-(--accent) font-semibold mb-3">
+            Cognitive SOC Assistant Summary
+          </h2>
+          <p className="text-xs/4 lg:text-sm/5 text-justify">
+            Detected credential anomalies on 3 internal assets. Autonomous
+            isolation block successfully applied to DNS exfiltration vectors
+            (Incident INC-1092). Mean Time to Mitigation (MTTM) is down to 42ms.
+            System health remains optimal.
+          </p>
+        </div>
       </div>
 
-      {/* line chart */}
-      <LineGraph data={dataLine} />
-    </div>
+      {/* cards */}
+      <div className="w-full flex justify-center lg:justify-start flex-wrap gap-2 md:gap-5 ">
+        <Cards data={cardData} />
+        <Cards />
+        <Cards />
+        <Cards />
+      </div>
+    </PageLayout>
   );
 }
 
