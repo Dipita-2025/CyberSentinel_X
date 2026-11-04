@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router";
-import { Logo, SideNav } from "../components";
+import { Footer, Logo, SideNav } from "../components";
 import { Menu } from "lucide-react";
 
 function DashboardLayout() {

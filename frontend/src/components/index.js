@@ -4,6 +4,7 @@ import Logo from "./Logo/Logo";
 import HeroCards from "./HeroCards/HeroCards";
 import SideNav from "./Sidenav/SideNav";
 import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 import PieChartComponent from "./Charts/PieChart/PieChart";
 import LineGraph from "./Charts/LineGraph/LineGraph";
 
@@ -14,6 +15,7 @@ export {
   HeroCards,
   SideNav,
   Header,
+  Footer,
   PieChartComponent,
   LineGraph,
 };

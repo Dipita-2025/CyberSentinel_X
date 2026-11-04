@@ -25,7 +25,7 @@ function Header({ headeing = "", desc = "", live = false }) {
       </div>
 
       {/* AI tag and threat level section */}
-      <div className="w-70 md:w-90 lg:w-130 bg-(--accent-bg) lg:bg-(--bg) border border-(--border) rounded-md mx-5 mt-1 px-3 py-2 md:py-1.5  flex items-center justify-between gap-1">
+      <div className="w-75 md:w-90 lg:w-130 bg-(--accent-bg) lg:bg-(--bg) border border-(--border) rounded-md mx-5 mt-1 px-3 py-2 md:py-1.5  flex items-center justify-between gap-1">
         {/* AI */}
         <div className="flex items-center gap-2">
           <Sparkles size={20} className="text-(--accent)" />
