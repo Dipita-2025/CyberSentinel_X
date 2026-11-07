@@ -8,7 +8,7 @@ function HeroCards({ Icon, heading, text, className = "" }) {
     >
       {/* card icon */}
       {Icon && (
-        <div className="p-3 w-fit shrink-0 rounded-lg bg-(--bg) border-0 border-(--accent)">
+        <div className="p-3 w-fit shrink-0 rounded-lg bg-(--bg-sec) border-0 border-(--accent)">
           <Icon size={24} className="text-(--accent)" />
         </div>
       )}

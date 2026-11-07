@@ -19,7 +19,7 @@ function LoginForm() {
 
   // dom
   return (
-    <div className="w-full sm:w-90 h-fit p-5  border-3 border-(--accent-border) rounded-md bg-(--bg) flex flex-col gap-5 ">
+    <div className="w-full sm:w-90 h-fit p-5  border-3 border-(--accent-border) rounded-md bg-(--accent-bg) flex flex-col gap-5 ">
       {/* header */}
       <div className="">
         <h2 className="text-lg text-(--text) font-bold">Wellcome Back</h2>
@@ -53,7 +53,7 @@ function LoginForm() {
                 type="button"
                 aria-label={showPass ? "Hide password" : "Show password"}
                 onClick={() => setShowPass((visible) => !visible)}
-                className="h-full aspect-square bg-(--accent-bg) flex justify-center items-center"
+                className="h-full aspect-square bg-(--bg-sec) flex justify-center items-center"
               >
                 {showPass ? (
                   <EyeOff

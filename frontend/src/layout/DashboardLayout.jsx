@@ -11,7 +11,7 @@ function DashboardLayout() {
       {/* side bar and logo */}
       <div className="w-full md:w-12 lg:w-18 xl:w-70 md:h-screen shrink-0">
         {/* menu and logo */}
-        <div className=" md:h-18 bg-(--accent-bg) border-b md:border-r border-(--border) py-1 flex items-center xl:justify-center gap-2">
+        <div className=" md:h-18 bg-(--bg-sec) border-b md:border-r border-(--border) py-1 flex items-center xl:justify-center gap-2">
           {/* menu button */}
           <button
             type="button"

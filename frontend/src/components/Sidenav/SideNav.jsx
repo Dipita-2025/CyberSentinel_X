@@ -82,14 +82,14 @@ function SideNav({ currentPage, focus }) {
 
   return (
     <div
-      className={`w-12 lg:w-18 xl:w-70 bg-(--accent-bg) h-[calc(100dvh-3.25rem)] md:h-[calc(100vh-4.5rem)] min-h-0 border-r border-(--border) xl:px-2 py-3 flex flex-col justify-between  items-center gap-10  fixed md:relative z-20  ${focus ? "left-0" : "-left-15 md:left-0"} top-14 md:top-auto transition-[left] duration-300 ease-in-out motion-reduce:transition-none overflow-x-clip overflow-y-hidden overscroll-none`}
+      className={`w-12 lg:w-18 xl:w-70 bg-(--bg-sec) h-[calc(100dvh-3.25rem)] md:h-[calc(100vh-4.5rem)] min-h-0 border-r border-(--border) xl:px-2 py-3 flex flex-col justify-between  items-center gap-10  fixed md:relative z-20  ${focus ? "left-0" : "-left-15 md:left-0"} top-14 md:top-auto transition-[left] duration-300 ease-in-out motion-reduce:transition-none overflow-x-clip overflow-y-hidden overscroll-none`}
     >
       {/* side nav options */}
       <div className="@container w-full p-2 aspect-square flex flex-col items-center gap-1 xl:gap-0">
         {sideNavOptions.map((option, index) => (
           <button
             key={index}
-            className={`w-8 xl:w-full h-8 xl:h-10 border rounded-md outline-0 focus:outline-0 ${currentPage === index ? "bg-(--accent-select) border-(--accent-border)" : "bg-(--accent-bg) border-(--accent-bg)"} aspect-square flex items-center justify-center xl:justify-between overflow-hidden`}
+            className={`w-8 xl:w-full h-8 xl:h-10 border rounded-md outline-0 focus:outline-0 ${currentPage === index ? "bg-(--accent-select) border-(--accent-border)" : "bg-(--bg-sec) border-(--bg-sec)"} aspect-square flex items-center justify-center xl:justify-between overflow-hidden`}
             onClick={() => navigate(option.path)}
           >
             {/* button content */}
@@ -121,7 +121,7 @@ function SideNav({ currentPage, focus }) {
       </div>
 
       {/* user profile */}
-      <div className="w-fit xl:w-full p-1 xl:p-2 bg-(--bg-sec)  border border-(--border) rounded-lg  flex items-center justify-center xl:justify-start xl:gap-3">
+      <div className="w-fit xl:w-full p-1 xl:p-2 bg-(--accent-bg)  border border-(--border) rounded-lg  flex items-center justify-center xl:justify-start xl:gap-3">
         {/* logo */}
         <div className="w-10 h-10 bg-blue-700/40 rounded-full flex justify-center items-center">
           <User size={20} />

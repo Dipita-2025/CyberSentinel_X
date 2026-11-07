@@ -2,24 +2,29 @@
 :root {
   --text: #ffffff;
   --text-h: #ffffff;
-  --bg: #0e131f;
-  --bg-sec: #14192a;
-  --accent-bg: #101931;
+  --bg: #0b1019;
+  --bg-sec: #0e131f;
+  --accent-bg: #151d2a;
   --text-sec: #94a3b8;
+  --tag: #94a3b8;
+  --tag-bg: #94a3b84b;
   --border: #1e293b;
   --critical: #ff4d4f;
+  --critical-bg: #ff4d4f4b;
   --high: #ff9c6e;
+  --high-bg: #ff9c6e4b;
   --medium: #ffd666;
-  --low: #1f64ff;
+  --medium-bg: #ffd6664b;
+  --low: #63d79b;
+  --low-bg: #63d79b4b;
   --button: #1f64ff;
   --accent: #00f0ff;
   --accent-select: #2d3748;
-  --green: #00ff66;
-  --green-bg: #10b98139;
-  --red: #ff9c6e;
+  --green: #63d79b;
+  --green-bg: #63d79b4b;
   --live-bg: rgba(16, 185, 129, 0.1255);
   --live-border: rgba(16, 185, 129, 0.251);
-  --bg-sec: #151d2a;
+
   --accent-border: #08426f;
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
@@ -31,11 +36,11 @@
     rgba(199, 199, 199, 0.25) 100%
   );
 
-  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --sans: inter system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 16px/80% var(--sans);
+  font: 16px var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
@@ -63,52 +68,15 @@
   display: none;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-} */
-
-/* body {
-  margin: 0;
-}
-*/
-
-/* #root {
-  width: 100vw;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-} */
-
 @utility bg-header {
   background: var(--header-gradient);
 }
 
 @utility text-xxs {
-  font-size: 12px;
+  font-size: 0.7rem;
 }
 @utility text-md {
-  font-size: 1.08rem;
+  font-size: 0.8125rem;
 }
 @utility sep-card {
   @apply relative after:absolute after:right-0 after:top-1/2 after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-(--border) last:after:hidden;

@@ -15,7 +15,7 @@ import {
   Plus,
   Percent,
 } from "lucide-react";
-import { Button, HeroCards, Logo } from "../../components";
+import { Button, Footer, HeroCards, Logo } from "../../components";
 import { useNavigate } from "react-router";
 
 function Homepage() {
@@ -110,14 +110,14 @@ function Homepage() {
 
   // dom
   return (
-    <div className="w-full min-h-screen h-full p-5 xl:p-10 bg-[url('/hero-bg.png')] bg-cover bg-left lg:bg-center-right  flex flex-col gap-15 ">
+    <div className="w-full min-h-screen h-full p-4 xl:p-10 bg-[url('/hero-bg-3.png')] lg:bg-[url('/hero-bg.png')] bg-cover bg-center-right flex flex-col gap-15 ">
       {/* logo */}
-      <Logo />
+      <Logo fontSize="text-xl" />
 
       {/* hero */}
       <div className="w-full flex flex-col gap-10 lg:gap-7">
         {/* features */}
-        <div className="w-fit py-1 px-2 bg-(--accent-bg) border-2 border-(--border) rounded-md text-xxs text-(--text-sec) flex items-center gap-2">
+        <div className="w-fit py-1 px-4 bg-(--accent-bg) border-2 border-(--border) rounded-full text-xxs text-(--text-sec) flex  items-center gap-1">
           <p className="text-nowrap">REAL TIME</p>
           <Dot />
           <p className="text-nowrap">AI-DRIVEN</p>
@@ -126,7 +126,7 @@ function Homepage() {
         </div>
 
         {/* hero */}
-        <div className="w-full md:w-[60%] lg:w-[35%] ">
+        <div className="w-full md:w-[60%] lg:w-[35%]">
           {/* hero header */}
           <div className="text-2xl md:text-4xl font-bold mb-5">
             <p>Smarter Security</p>
@@ -136,7 +136,7 @@ function Homepage() {
           </div>
 
           {/* hero text */}
-          <p className="text-sm text-(--text-sec)">
+          <p className="text-md text-(--text-sec)">
             CyberSentinel X continuously analyzes user behaviour, detects
             potential threats and helps you respond intelligently-keeping your
             people, data and systems secure
@@ -144,7 +144,7 @@ function Homepage() {
         </div>
 
         {/* hero buttons */}
-        <div className="w-full md:w-[60%] lg:w-[30%] flex flex-col xl:flex-row gap-2">
+        <div className="w-full md:w-[60%] lg:w-[40%] flex flex-col md:flex-row gap-2">
           {/* login button */}
           <Button
             label="Get Started"
@@ -161,7 +161,7 @@ function Homepage() {
         </div>
 
         {/* advantages */}
-        <div className="lg:w-[40%] xl:w-full flex flex-wrap flex-col md:flex-row justify-start items-start gap-2 md:gap-5 ">
+        <div className="lg:w-[40%] xl:w-full flex flex-wrap flex-col xl:flex-row justify-start items-start gap-2 md:gap-5">
           {advantages.map((adv, index) => (
             // advantage
             <div
@@ -178,7 +178,7 @@ function Homepage() {
       </div>
 
       {/* feature cards and stats*/}
-      <div className="w-full h-fit py-5 mt-0 flex flex-col items-center gap-5">
+      <div className="w-full h-fit py-5 mt-0 flex flex-col items-center gap-5  xl:mt-15">
         {/* cards */}
         <div className="w-full h-fit flex flex-wrap justify-between items-center gap-2">
           {cards.map((card, index) => (
@@ -206,7 +206,7 @@ function Homepage() {
               key={stat.text}
               className="w-[48%] lg:w-[23%] px-3 lg:px-0 flex gap-3 items-center justify-start lg:justify-center lg:sep-card "
             >
-              <div className="p-2 border-2 rounded-full border-(--accent-border) bg-(--bg) ">
+              <div className="p-2 border-2 rounded-full border-(--accent-border) bg-(--bg-sec) ">
                 <stat.icon className="text-(--accent)" size={20} />
               </div>
 
@@ -228,23 +228,8 @@ function Homepage() {
         </div>
       </div>
 
-      {/* homepage footer */}
-      <div className="w-full hidden md:flex justify-between">
-        <div>
-          <p className="text-xs text-(--text-sec)">
-            Built for a safer digital world
-          </p>
-        </div>
-        <div className="flex justify-between">
-          {footerData.map((data, index) => (
-            <div key={index} className=" sep-card after:h-5!">
-              <p className="px-5 text-xs text-(--text-sec) font-semibold">
-                {data.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* footer */}
+      <Footer />
     </div>
   );
 }

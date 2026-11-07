@@ -5,38 +5,42 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  XAxis,
+  YAxis,
 } from "recharts";
 import CustomTooltip from "../CustomTooltip";
 
-function LineGraph({ data = [] }) {
+function LineGraph({
+  data = [],
+  xKey = "month",
+  yKey = "threats",
+  xLabel = "Month",
+  yLabel = "Threats",
+}) {
   if (!data.length) {
     return null;
   }
 
   return (
-    <div className="w-full h-75 rounded-xl flex items-center justify-center p-4 bg-(--bg-sec)">
-      <ResponsiveContainer width="100%" height="100%" className="">
+    <div className="flex h-75 w-full items-center justify-center rounded-xl outline-none **:outline-none">
+      <ResponsiveContainer
+        width="100%"
+        height="100%"
+        className="mx-auto box-border rounded-md border border-(--border) bg-(--accent-bg) px-0.5 py-2 outline-none focus:outline-none focus-visible:outline-none md:px-2"
+      >
         <LineChart
-          className=""
           data={data}
           margin={{
-            top: 10,
+            top: 15,
             right: 20,
-            left: 10,
-            bottom: 10,
+            left: 20,
+            bottom: 20,
           }}
         >
-          {/* Background grid */}
-          <CartesianGrid strokeDasharray="3 3" stroke="#26354a" />
-
           {/* Custom Tooltip */}
           <Tooltip
             content={
-              <CustomTooltip
-                type="line"
-                labelName="month"
-                valueName="threats"
-              />
+              <CustomTooltip type="line" labelName={xKey} valueName={yKey} />
             }
             isAnimationActive={false}
           />
@@ -44,7 +48,7 @@ function LineGraph({ data = [] }) {
           {/* Line */}
           <Line
             type="monotone"
-            dataKey="threats"
+            dataKey={yKey}
             stroke="#00c2ff"
             strokeWidth={3}
             dot={{
@@ -57,6 +61,13 @@ function LineGraph({ data = [] }) {
               r: 8,
             }}
           />
+          <XAxis
+            dataKey={xKey}
+            className="text-xxs"
+            tickMargin={8}
+            height={30}
+          />
+          <YAxis className="text-xxs" width={45} tickMargin={8} />
         </LineChart>
       </ResponsiveContainer>
     </div>

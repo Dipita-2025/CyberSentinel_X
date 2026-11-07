@@ -31,7 +31,7 @@ function Button({ label = "button", onClickFunction, className = "", Icon }) {
           // default texts
           <span className="flex gap-2 justify-center items-center text-nowrap">
             {label}
-            {Icon && <Icon size={20} strokeWidth={3} />}
+            {Icon && <Icon size={20} strokeWidth={2} />}
           </span>
         )}
       </button>

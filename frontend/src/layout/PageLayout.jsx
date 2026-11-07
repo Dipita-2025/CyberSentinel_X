@@ -5,10 +5,8 @@ function PageLayout({ heading, desc, live, children }) {
   return (
     <div className="w-full">
       <Header heading={heading} desc={desc} live={live} />
-      <div className="px-1 py-5 md:p-5 flex flex-col gap-2 md:gap-5">
-        {children}
-      </div>
-      <div className="w-full p-2 md:p-5 ">
+      <div className="p-4 md:p-6 xl:p-8 flex  flex-col gap-6">{children}</div>
+      <div className="w-full px-4 md:px-5 bg-(--bg-sec)">
         <Footer />
       </div>
     </div>

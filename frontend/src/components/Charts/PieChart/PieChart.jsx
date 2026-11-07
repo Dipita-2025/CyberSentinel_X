@@ -3,7 +3,7 @@ import CustomTooltip from "../CustomTooltip";
 
 const COLORS = {
   low: "#52C41A",
-  midium: "#FFD666",
+  medium: "#FFD666",
   high: "#FF9C6E",
   critical: "#FF4D4F",
   extra: "#0e131f",
@@ -15,8 +15,11 @@ export default function PieChartComponent({ data = [] }) {
   }
 
   return (
-    <div className="w-full max-w-50 h-ful flex items-center justify-center  ">
-      <PieChart responsive className="w-full h-full aspect-square">
+    <div className="flex h-fit w-full max-w-50 items-center justify-center outline-none **:outline-none">
+      <PieChart
+        responsive
+        className="aspect-square h-full w-full outline-none focus:outline-none focus-visible:outline-none"
+      >
         {/* pie chart */}
         <Pie
           data={data}
