@@ -117,7 +117,7 @@ function Homepage() {
       {/* hero */}
       <div className="w-full flex flex-col gap-10 lg:gap-7">
         {/* features */}
-        <div className="w-fit py-1 px-4 bg-(--accent-bg) border-2 border-(--border) rounded-full text-xxs text-(--text-sec) flex  items-center gap-1">
+        <div className="w-full md:w-fit py-1 px-4 bg-(--accent-bg) border-2 border-(--border) rounded-full text-xxs text-(--text-sec) flex  items-center gap-1">
           <p className="text-nowrap">REAL TIME</p>
           <Dot />
           <p className="text-nowrap">AI-DRIVEN</p>

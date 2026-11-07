@@ -5,15 +5,14 @@ import {
   LineGraph,
   Cards,
   CriticalTag,
-  HighTag,
   LiveTag,
   LowTag,
-  MediumTag,
   Tags,
   DefaultTag,
+  Button,
 } from "../../../components";
 import { useSelector } from "react-redux";
-import { Brain, Dot } from "lucide-react";
+import { Brain, Dot, ArrowRight } from "lucide-react";
 import PageLayout from "../../../layout/PageLayout";
 
 function Dashboard() {
@@ -143,7 +142,7 @@ function Dashboard() {
       </div>
 
       {/* charts */}
-      <div className="grid gap-2 xl:grid-cols-[minmax(0,65fr)_minmax(0,35fr)]  lg:gap-6 ">
+      <div className="grid xl:grid-cols-[minmax(0,65fr)_minmax(0,35fr)]  gap-6 ">
         {/* line chart and active section */}
         <div className="contents xl:flex xl:min-w-0 xl:flex-col lg:gap-6">
           {/* line chart section */}
@@ -171,7 +170,7 @@ function Dashboard() {
               Active Severity Threats
             </h4>
             {activeData.map((item) => (
-              <div className=" p-3 bg-(--bg) border-2 border-(--border) rounded-md">
+              <div className=" p-3 bg-(--bg) border border-(--border) rounded-md">
                 <div className="flex justify-between items-center mb-2">
                   <h4 className="text-md text-(--text-sec) font-bold ">
                     {item.id}
@@ -181,6 +180,12 @@ function Dashboard() {
                 <p className="text-md text-(--text)">{item.desc}</p>
               </div>
             ))}
+            <Button
+              className="bg-(--accent-bg)! w-full md:w-40 text-(--text) border! border-(--border) text-md"
+              label="Get Started"
+              Icon={ArrowRight}
+              iconSize={15}
+            />
           </div>
         </div>
 
@@ -224,9 +229,9 @@ function Dashboard() {
               <p className="text-xxs text-(--text-sec)">
                 Vulnerability Scanning Hub
               </p>
-              <div className="flex items-center h-5 ">
-                <Dot strokeWidth={10} />
-                <p className="text-md text-(--text)">Optimized</p>
+              <div className="flex h-5 items-center gap-1">
+                <Dot size={16} strokeWidth={15} className="shrink-0" />
+                <p className="text-md leading-none text-(--text)">Optimized</p>
               </div>
             </div>
             <hr className="text-(--border) h-0.2" />
@@ -234,9 +239,11 @@ function Dashboard() {
               <p className="text-xxs text-(--text-sec)">
                 Microagent Coverage Rate
               </p>
-              <div className="flex items-center h-5">
-                <Dot strokeWidth={10} />
-                <p className="text-md text-(--text)">99.8% Protected</p>
+              <div className="flex h-5 items-center gap-1">
+                <Dot size={16} strokeWidth={15} className="shrink-0" />
+                <p className="text-md leading-none text-(--text)">
+                  99.8% Protected
+                </p>
               </div>
             </div>
             <hr className="text-(--border) h-0.2" />
@@ -244,9 +251,11 @@ function Dashboard() {
               <p className="text-xxs text-(--text-sec)">
                 Firewall Gateway Isolation
               </p>
-              <div className="flex items-center h-5 ">
-                <Dot strokeWidth={10} />
-                <p className="text-md text-(--text)">Operational</p>
+              <div className="flex h-5 items-center gap-1">
+                <Dot size={16} strokeWidth={15} className="shrink-0" />
+                <p className="text-md leading-none text-(--text)">
+                  Operational
+                </p>
               </div>
             </div>
 
