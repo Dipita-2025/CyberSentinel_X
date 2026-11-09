@@ -20,7 +20,7 @@ function Input({
 
       {/* input box */}
       <div
-        className={`border-2 border-(--border) bg-(--bg-sec) rounded-md h-10 w-full  px-2 gap-2 flex items-center justify-center `}
+        className={`border border-(--border) bg-(--bg-sec) rounded-md h-10 w-full  px-2 gap-2 flex items-center justify-center `}
       >
         {/* input icon */}
         {Icon && <Icon strokeWidth={2} className="text-(--text-sec)" />}

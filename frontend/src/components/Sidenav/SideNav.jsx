@@ -89,7 +89,7 @@ function SideNav({ currentPage, focus }) {
         {sideNavOptions.map((option, index) => (
           <button
             key={index}
-            className={`w-8 xl:w-full h-8 xl:h-10 border rounded-md outline-0 focus:outline-0 ${currentPage === index ? "bg-(--accent-select) border-(--accent-border)" : "bg-(--bg-sec) border-(--bg-sec)"} aspect-square flex items-center justify-center xl:justify-between overflow-hidden`}
+            className={`w-8 xl:w-full h-8 xl:h-10 border rounded-md outline-0 focus:outline-0 ${currentPage === index ? "bg-(--accent-bg) border-(--accent)" : "bg-(--bg-sec) border-(--bg-sec)"} aspect-square flex items-center justify-center xl:justify-between overflow-hidden`}
             onClick={() => navigate(option.path)}
           >
             {/* button content */}

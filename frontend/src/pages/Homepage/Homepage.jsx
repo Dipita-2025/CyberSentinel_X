@@ -150,13 +150,14 @@ function Homepage() {
             label="Get Started"
             Icon={ArrowRight}
             onClickFunction={() => navigate("/login")}
+            className="bg-(--accent)! border-(--accent)! text-(--bg-sec)! font-semibold!"
           />
 
           {/* watch demo button */}
           <Button
             label="Watch Demo"
             Icon={CirclePlay}
-            className="bg-(--accent-bg)! border-2! border-(--accent-border)!"
+            className=" border! border-(--accent)! font-normal! text-(--accent)!"
           />
         </div>
 

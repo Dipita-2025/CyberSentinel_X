@@ -2,10 +2,10 @@ import { PieChart, Pie, Label, Cell, Tooltip } from "recharts";
 import CustomTooltip from "../CustomTooltip";
 
 const COLORS = {
-  low: "#52C41A",
-  medium: "#FFD666",
-  high: "#FF9C6E",
-  critical: "#FF4D4F",
+  low: "#63d79b",
+  medium: "#ffd666",
+  high: "#ff9c6e",
+  critical: "#ff4d4f",
   extra: "#0e131f",
 };
 

@@ -24,7 +24,7 @@ function Button({
         disabled={processing}
         aria-busy={processing}
         key={label}
-        className={`h-10 bg-(--button) text-base font-semibold text-(--text) w-full min-w-35 rounded-md border-0 outline-0 flex justify-center items-center p-2 ${className}`}
+        className={`h-10 bg-(--accent-bg) text-base text-(--text) w-full  rounded-md border-2 border-(--border) outline-0 flex justify-center items-center p-2 ${className}`}
         onClick={handleClick}
       >
         {processing ? (
@@ -35,10 +35,10 @@ function Button({
           </span>
         ) : (
           // default texts
-          <span className="flex gap-2 justify-center items-center text-nowrap leading-none">
-            {label}
-            {Icon && <Icon size={iconSize} strokeWidth={2} />}
-          </span>
+          <div className=" h-full flex gap-2 justify-center items-center text-nowrap leading-none">
+            <p className="leading-none">{label}</p>
+            {Icon && <Icon size={iconSize} strokeWidth={3} />}
+          </div>
         )}
       </button>
     </div>

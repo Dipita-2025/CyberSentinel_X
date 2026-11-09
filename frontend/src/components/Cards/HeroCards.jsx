@@ -4,7 +4,7 @@ function HeroCards({ Icon, heading, text, className = "" }) {
   // dom
   return (
     <div
-      className={`w-full h-full bg-(--accent-bg) border-2 rounded-lg p-2 border-(--border) flex gap-3  ${className.trim()}`}
+      className={`w-full h-full bg-(--accent-bg) border rounded-lg p-2 border-(--accent) flex gap-3  ${className.trim()}`}
     >
       {/* card icon */}
       {Icon && (

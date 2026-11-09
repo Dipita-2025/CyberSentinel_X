@@ -15,6 +15,7 @@ import HighTag from "./Tags/HighTag";
 import MediumTag from "./Tags/MediumTag";
 import LowTag from "./Tags/LowTag";
 import Tags from "./Tags/Tags";
+import EventCard from "./Cards/EventCard";
 
 export {
   Input,
@@ -34,4 +35,5 @@ export {
   MediumTag,
   LowTag,
   Tags,
+  EventCard,
 };
