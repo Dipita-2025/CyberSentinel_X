@@ -96,6 +96,7 @@ function Login() {
                 heading={item.heading}
                 text={item.desc}
                 className="flex-col"
+                iconSize={20}
               />
             </div>
           ))}

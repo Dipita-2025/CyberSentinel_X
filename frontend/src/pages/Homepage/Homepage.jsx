@@ -117,7 +117,7 @@ function Homepage() {
       {/* hero */}
       <div className="w-full flex flex-col gap-10 lg:gap-7">
         {/* features */}
-        <div className="w-full md:w-fit py-1 px-4 bg-(--accent-bg) border-2 border-(--border) rounded-full text-xxs text-(--text-sec) flex  items-center gap-1">
+        <div className="w-full md:w-fit py-1 px-4 bg-(--bg) border-2 border-(--border) rounded-full text-xxs text-(--text-sec) flex  items-center gap-1">
           <p className="text-nowrap">REAL TIME</p>
           <Dot />
           <p className="text-nowrap">AI-DRIVEN</p>
@@ -150,14 +150,14 @@ function Homepage() {
             label="Get Started"
             Icon={ArrowRight}
             onClickFunction={() => navigate("/login")}
-            className="bg-(--accent)! border-(--accent)! text-(--bg-sec)! font-semibold!"
+            className="bg-(--accent)! border-(--accent)! text-(--bg-sec)! font-semibold! w-full"
           />
 
           {/* watch demo button */}
           <Button
             label="Watch Demo"
             Icon={CirclePlay}
-            className=" border! border-(--accent)! font-normal! text-(--accent)!"
+            className=" border! border-(--accent)! font-normal! text-(--accent)! w-full"
           />
         </div>
 
@@ -200,7 +200,7 @@ function Homepage() {
         </div>
 
         {/* stats */}
-        <div className="w-full h-fit bg-(--accent-bg) p-3 border border-(--border) rounded-md hidden md:flex justify-between flex-wrap gap-5 lg:gap-0">
+        <div className="w-full h-fit bg-(--bg) p-3 border border-(--border) rounded-md hidden md:flex justify-between flex-wrap gap-5 lg:gap-0">
           {stats.map((stat) => (
             // stat
             <div

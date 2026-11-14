@@ -88,8 +88,8 @@ function Dashboard() {
 
       {/* page content */}
       {/* summary */}
-      <div className="w-full bg-(--bg-sec) p-2 md:p-5 border border-(--border) rounded-md flex items-center justify-around gap-5">
-        <div className="p-2 bg-[#00f0ff33] border border-(--accent) rounded-md hidden xl:block ">
+      <div className="w-full bg-(--accent-bg) p-2 md:p-5 border border-(--accent) rounded-md flex items-center justify-around gap-5">
+        <div className="p-2 bg-(--accent-bg) border border-(--accent) rounded-md hidden xl:block ">
           <Brain size={35} className="text-(--accent)" />
         </div>
         <div className="w-full">
@@ -181,7 +181,7 @@ function Dashboard() {
               </div>
             ))}
             <Button
-              className="bg-(--accent-bg)! w-full md:w-40 text-(--text) border! border-(--border) text-md"
+              className="bg-(--bg)! w-full md:w-40 text-(--text) border! border-(--border) text-md"
               label="Get Started"
               Icon={ArrowRight}
               iconSize={15}

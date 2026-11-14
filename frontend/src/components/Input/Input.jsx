@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function Input({
   name = "Email",
   type = "text",
-  classname = "",
+  className = "",
   onInputChange,
   Icon,
   Element,
@@ -12,7 +12,7 @@ function Input({
     <div className="">
       {/* label */}
       <label
-        className="text-xs text-(--text-sec) font-semibold  block px-1"
+        className="text-xs text-(--text-sec) font-semibold  block px-1 mb-1 "
         htmlFor={name}
       >
         {name}
@@ -20,7 +20,7 @@ function Input({
 
       {/* input box */}
       <div
-        className={`border border-(--border) bg-(--bg-sec) rounded-md h-10 w-full  px-2 gap-2 flex items-center justify-center `}
+        className={`border border-(--border) bg-(--bg-sec) rounded-md h-10 w-full  px-2 gap-2 flex items-center justify-center ${className.trim()}`}
       >
         {/* input icon */}
         {Icon && <Icon strokeWidth={2} className="text-(--text-sec)" />}

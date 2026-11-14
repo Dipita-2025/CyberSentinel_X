@@ -36,7 +36,7 @@ function SideNav({ currentPage, focus }) {
     {
       icon: ShieldAlert,
       name: "Incidents",
-      path: "/dashboard/",
+      path: "/dashboard/incidents",
     },
     {
       icon: UserRoundCheck,
@@ -76,7 +76,7 @@ function SideNav({ currentPage, focus }) {
     {
       icon: Settings,
       name: "Settings",
-      path: "/dashboard/",
+      path: "/dashboard/settings",
     },
   ];
 
@@ -121,11 +121,12 @@ function SideNav({ currentPage, focus }) {
       </div>
 
       {/* user profile */}
-      <div className="w-fit xl:w-full p-1 xl:p-2 bg-(--accent-bg)  border border-(--border) rounded-lg  flex items-center justify-center xl:justify-start xl:gap-3">
+      <div
+        className={`w-fit xl:w-full p-1 xl:p-2 cursor-pointer  border  rounded-lg  flex items-center justify-center xl:justify-start xl:gap-3 ${currentPage === 11 ? "bg-(--accent-bg) border-(--accent)" : "bg-(--bg) border-(--border)"}`}
+        onClick={() => navigate("/dashboard/profile")}
+      >
         {/* logo */}
-        <div className="w-10 h-10 bg-blue-700/40 rounded-full flex justify-center items-center">
-          <User size={20} />
-        </div>
+        <div className="w-10 h-10 rounded-full  bg-[url('/avatar.png')] bg-cover bg-center"></div>
 
         {/* name and role */}
         <div className="hidden xl:block ">

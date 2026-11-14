@@ -26,7 +26,7 @@ function LineGraph({
       <ResponsiveContainer
         width="100%"
         height="100%"
-        className="mx-auto box-border rounded-md border border-(--border) bg-(--accent-bg) px-0.5 py-2 outline-none focus:outline-none focus-visible:outline-none md:px-2"
+        className="mx-auto box-border rounded-md border border-(--border) bg-(--bg) px-0.5 py-2 outline-none focus:outline-none focus-visible:outline-none md:px-2"
       >
         <LineChart
           data={data}

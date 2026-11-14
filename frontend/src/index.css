@@ -1,10 +1,9 @@
 @import "tailwindcss";
 :root {
-  --text: #ffffff;
-  --text-h: #ffffff;
+  --text: #f8fafc;
+  --text-h: #f8fafc;
   --bg: #0b1019;
   --bg-sec: #0e131f;
-  --accent-bg: #151d2a;
   --text-sec: #94a3b8;
   --tag: #94a3b8;
   --tag-bg: #94a3b84b;
@@ -17,9 +16,9 @@
   --medium-bg: #ffd6664b;
   --low: #63d79b;
   --low-bg: #63d79b4b;
-  --button: #2cb6da;
+  --button: #151d2a;
+  --accent-bg: #2cb6da1f;
   --accent: #2cb6da;
-
   --green: #63d79b;
   --green-bg: #63d79b4b;
   --live-bg: rgba(16, 185, 129, 0.1255);
@@ -41,6 +40,7 @@
   --mono: ui-monospace, Consolas, monospace;
 
   font: 16px var(--sans);
+  font-size: 16px;
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
@@ -50,8 +50,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  @media (min-width: 1440px) {
+    font-size: 17px;
+    button {
+      font-size: 16px;
+    }
   }
 }
 

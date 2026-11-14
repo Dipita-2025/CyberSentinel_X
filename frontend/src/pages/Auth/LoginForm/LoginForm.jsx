@@ -19,7 +19,7 @@ function LoginForm() {
 
   // dom
   return (
-    <div className="w-full sm:w-90 h-fit p-5  border-2 border-(--border) rounded-md bg-(--accent-bg) flex flex-col gap-5 ">
+    <div className="w-full sm:w-90 h-fit p-5  border-2 border-(--border) rounded-md bg-(--bg) flex flex-col gap-5 ">
       {/* header */}
       <div className="">
         <h2 className="text-xl text-(--text) font-bold">Wellcome Back</h2>
@@ -91,7 +91,7 @@ function LoginForm() {
         label="Login"
         Icon={ArrowRight}
         onClickFunction={onLogin}
-        className="bg-(--accent)! border-(--accent)! text-(--bg-sec)!"
+        className="bg-(--accent)! border-(--accent)! text-(--bg-sec)! w-full"
       />
     </div>
   );

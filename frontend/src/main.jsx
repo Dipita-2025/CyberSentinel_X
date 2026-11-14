@@ -15,7 +15,13 @@ import { createBrowserRouter } from "react-router";
 import Login from "./pages/Auth/Login/Login.jsx";
 import Homepage from "./pages/Homepage/Homepage.jsx";
 import DashboardLayout from "./layout/DashboardLayout.jsx";
-import { Dashboard, LiveEvents } from "./pages/DashboardPages/index.js";
+import {
+  Dashboard,
+  LiveEvents,
+  Incidents,
+  Settings,
+  Profile,
+} from "./pages/DashboardPages/index.js";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +47,18 @@ const router = createBrowserRouter([
           {
             path: "live-events",
             element: <LiveEvents />,
+          },
+          {
+            path: "incidents",
+            element: <Incidents />,
+          },
+          {
+            path: "settings",
+            element: <Settings />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
           },
         ],
       },
