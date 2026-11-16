@@ -6,6 +6,7 @@ import { Button, Input } from "../../Component";
 function Login() {
   const [username, setUsername] = useState("alex.morgan");
   const [password, setPassword] = useState("sentinel2026");
+  const [showPassword, setShowPassword] = useState(false);
 
   const previewInvalidCredentials = () => {
     setUsername("invalid.user");
@@ -13,7 +14,7 @@ function Login() {
   };
 
   return (
-    <div className="w-full p-24 sm:p-40 xl:p-24">
+    <div className="w-full card-padding">
       <div className="flex flex-col gap-12">
         <p className="text-[10px] font-semibold tracking-[0.12em] text-(--accent-light)">
           SECURE WORKSPACE ACCESS
@@ -44,16 +45,19 @@ function Login() {
           />
         </div>
         <div>
-          <Input
-            name="Password"
-            id="login-password"
-            type="password"
-            value={password}
-            autoComplete="current-password"
-            onInputChange={(event) => setPassword(event.target.value)}
-            labelClassName="text-caption font-normal text-(--text-muted)"
-            className="rounded-lg"
-          />
+          <div>
+            <Input
+              name="Password"
+              id="login-password"
+              type={showPassword ? "text" : "password"}
+              value={password}
+              autoComplete="current-password"
+              onInputChange={(event) => setPassword(event.target.value)}
+              labelClassName="text-caption font-normal text-(--text-muted)"
+              className="rounded-lg"
+            />
+            {showPassword ? <button>show</button> : <>hide</>}
+          </div>
           <div className="flex justify-end">
             <Link
               className="text-caption text-(--accent) hover:underline"
@@ -72,7 +76,7 @@ function Login() {
         />
       </form>
 
-      <div className="mt-24 flex flex-col gap-10 xl:mt-16">
+      {/* <div className="mt-24 flex flex-col gap-10 xl:mt-16">
         <p className="text-[11px] leading-relaxed text-(--text-muted)">
           Prototype preview · Example credentials are prefilled. Native inputs
           do not accept arbitrary text.
@@ -84,7 +88,7 @@ function Login() {
         >
           Preview invalid credentials
         </button>
-      </div>
+      </div> */}
 
       <div className="mt-28 flex items-center gap-10 text-(--text-muted) xl:mt-16">
         <Lock aria-hidden="true" className="shrink-0" size={18} />

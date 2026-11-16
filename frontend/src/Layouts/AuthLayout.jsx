@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router";
-import { Logo } from "../Component";
+import { Footer, Logo, FeatureCard } from "../Component";
 import {
   ArrowLeft,
   Brain,
@@ -47,35 +47,33 @@ const heroItems = [
 
 function AuthLayout() {
   return (
-    <div className="flex min-h-screen flex-col bg-(--bg) xl:h-screen xl:min-h-0">
-      <header className="mx-auto flex w-full  items-center justify-between px-20 py-16 sm:px-32 lg:px-48">
-        <Logo />
+    <div className="flex min-h-screen flex-col justify-between bg-(--bg) bg-[url('/login.png')] bg-cover bg-no-repeat bg-center xl:h-screen xl:min-h-0">
+      <header className="mx-auto flex w-full border-b border-(--border) p-20 sm:px-32 lg:px-48">
         <Link
           to="/"
-          className="inline-flex  items-center gap-8 rounded-md  px-12 text-caption font-medium text-(--accent-light) transition-colors  hover:text-(--text) "
+          className="inline-flex justify-end items-center gap-8 rounded-md   text-caption font-medium text-(--accent-light)  hover:text-(--text) "
         >
           <ArrowLeft aria-hidden="true" size={16} />
-          <span className="hidden md:block">Back to</span>
-          {""}home
+          Back to home
         </Link>
       </header>
 
-      <main className="flex  flex-col lg:flex-row items-center p-8 sm:px-32 lg:px-48 lg:py-48 xl:min-h-0 xl:py-12 gap-24">
-        <div className="w-full h-fit lg:w-[60%]   p-8 py-20 lg:p-20 xl:p-40 flex flex-col justify-center gap-40 bg-(--sidebar) rounded-md border border-(--border)">
+      <main className="flex flex-col xl:flex-row justify-between items-center p-8 py-20 md:p-48 xl:min-h-0 gap-20 md:gap-48">
+        <div className="w-full h-fit xl:w-[60%] card-padding flex flex-col justify-center gap-12 md:gap-40  shrink-0 rounded-md ">
           {/* hero text*/}
-          <div>
+          <div className="">
+            <Logo />
+          </div>
+          <div className="mb-12">
             {/* name */}
-            <p className="text-head font-bold text-(--text) mb-12">
-              CyberSentinel <span className="text-(--accent)">X</span>
-            </p>
 
             {/* tagline */}
-            <p className="text-head-sec font-bold md:mb-16">
+            <p className="text-head-sec md:text-head-page font-semibold mb-8">
               Smarter Security for a Safer Tomorrow
             </p>
 
             {/* desc */}
-            <p className="hidden md:block w-full md:w-[60%] lg:w-[70%] text-body text-(--text-muted) ">
+            <p className="hidden md:block w-full md:w-[60%] lg:w-[70%] text-body/1 text-(--text-muted) ">
               Context-aware Al that continuously monitors, analyzes and responds
               to potential threats protecting your people, accounts and critical
               data.
@@ -92,43 +90,27 @@ function AuthLayout() {
           </div>
 
           {/* hero items */}
-          <div className="hidden md:flex justify-center  flex-wrap gap-8">
+          <div className="hidden md:flex justify-start  flex-wrap gap-12">
             {heroItems.map((item, index) => (
               // each icon
+              // each icon
               <div className="w-[48%] md:w-[31%]" key={index}>
-                <div
-                  className={`w-full h-full bg-(--card)  rounded-lg p-12  flex flex-col items-start gap-12 `}
-                >
-                  {/* card icon */}
-                  {item.icon && (
-                    <div className="p-8  w-fit shrink-0 rounded-lg bg-(--accent-light-bg)  ">
-                      <item.icon size={24} className="text-(--accent-light)" />
-                    </div>
-                  )}
-
-                  {/* card text */}
-                  <div className="min-w-0">
-                    <h2 className="font-bold text-body mb-8">{item.heading}</h2>
-                    <p className="text-caption text-(--text-muted)">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
+                <FeatureCard
+                  Icon={item.icon}
+                  heading={item.heading}
+                  desc={item.desc}
+                  className="flex-col p-8!"
+                  iconSize={20}
+                />
               </div>
             ))}
           </div>
         </div>
-        <section className="w-full lg:w-[40%] overflow-hidden rounded-2xl border border-(--border) bg-(--card)">
+        <section className="w-full max-w-500 overflow-hidden rounded-md border border-(--border) bg-(--card)">
           <Outlet />
         </section>
       </main>
-
-      <footer className="mx-auto flex w-full flex-col gap-8 px-20 py-16 text-caption text-(--text-muted) sm:flex-row sm:items-center sm:justify-between sm:px-32 lg:px-48">
-        <p>© {new Date().getFullYear()} CyberSentinel X</p>
-        <p className="inline-flex items-center gap-6">
-          CyberSentinel / Intelligent trust. Explicit access.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -40,18 +40,10 @@ function Button({
       ) : (
         // default texts
         <div
-          className={`h-full flex gap-8 justify-center items-center text-nowrap leading-none ${contentClassName}`}
+          className={`h-full flex gap-8 justify-center items-center text-nowrap leading-none text-(--bg) ${contentClassName}`}
         >
-          <p className="text-body font-medium leading-none text-(--button-text)">
-            {label}
-          </p>
-          {Icon && (
-            <Icon
-              size={iconSize}
-              strokeWidth={3}
-              className="text-(--button-text)"
-            />
-          )}
+          <p className="text-body font-medium leading-none ">{label}</p>
+          {Icon && <Icon size={iconSize} strokeWidth={2} className="" />}
         </div>
       )}
     </button>

@@ -15,7 +15,7 @@ function Input({
     <>
       {/* label */}
       <label
-        className={`text-body text-(--text-sec) font-semibold block px-1 mb-2 ${labelClassName}`}
+        className={`text-body text-(--text-nuted) font-semibold block px-1 mb-8 ${labelClassName}`}
         htmlFor={id}
       >
         {name}
@@ -26,7 +26,7 @@ function Input({
         className={`border border-(--border) bg-[#111B2E] rounded-md h-45 w-full  px-8 gap-8 flex items-center justify-center ${className.trim()}`}
       >
         {/* input icon */}
-        {Icon && <Icon strokeWidth={2} className="text-(--text-sec)" />}
+        {Icon && <Icon strokeWidth={2} className="text-(--text-muted)" />}
 
         {/* input feild */}
         <input
