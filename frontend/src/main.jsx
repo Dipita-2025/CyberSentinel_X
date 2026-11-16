@@ -11,17 +11,18 @@ import store from "./store/store.js";
 import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router";
 
-// pages
-import Login from "./pages/Auth/Login/Login.jsx";
-import Homepage from "./pages/Homepage/Homepage.jsx";
-import DashboardLayout from "./layout/DashboardLayout.jsx";
+// Layouts
+import { AuthLayout } from "./Layouts/index.js";
+
+// common pages
 import {
-  Dashboard,
-  LiveEvents,
-  Incidents,
-  Settings,
-  Profile,
-} from "./pages/DashboardPages/index.js";
+  HomePage,
+  LoginPage,
+  ChangePasswordPage,
+  ForgetPasswordPage,
+} from "./Pages/common/index.js";
+
+// import Login from "./AuthForms/Login/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,35 +31,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Homepage />,
+        element: <HomePage />,
       },
       {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "dashboard",
-        element: <DashboardLayout />,
+        path: "auth",
+        element: <AuthLayout />,
         children: [
           {
             path: "",
-            element: <Dashboard />,
+            element: <LoginPage />,
           },
           {
-            path: "live-events",
-            element: <LiveEvents />,
+            path: "forget-password",
+            element: <ForgetPasswordPage />,
           },
           {
-            path: "incidents",
-            element: <Incidents />,
-          },
-          {
-            path: "settings",
-            element: <Settings />,
-          },
-          {
-            path: "profile",
-            element: <Profile />,
+            path: "change-password",
+            element: <ChangePasswordPage />,
           },
         ],
       },
