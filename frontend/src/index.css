@@ -1,24 +1,46 @@
 @import "tailwindcss";
 :root {
-  --text: #ffffff;
-  --text-h: #ffffff;
-  --bg: #000000;
+  --text: #f8fafc;
+  --text-h: #f8fafc;
+  --bg: #0b1019;
+  --bg-sec: #0e131f;
   --text-sec: #94a3b8;
-  --button: #246beb;
+  --tag: #94a3b8;
+  --tag-bg: #94a3b84b;
   --border: #1e293b;
-  --accent: #246beb;
+  --critical: #ff4d4f;
+  --critical-bg: #ff4d4f4b;
+  --high: #ff9c6e;
+  --high-bg: #ff9c6e4b;
+  --medium: #ffd666;
+  --medium-bg: #ffd6664b;
+  --low: #63d79b;
+  --low-bg: #63d79b4b;
+  --button: #151d2a;
+  --accent-bg: #2cb6da1f;
+  --accent: #2cb6da;
+  --green: #63d79b;
+  --green-bg: #63d79b4b;
+  --live-bg: rgba(16, 185, 129, 0.1255);
+  --live-border: rgba(16, 185, 129, 0.251);
 
-  --accent-bg: #0e131f;
-  --accent-border: rgba(170, 59, 255, 0.5);
+  --accent-border: #08426f;
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --header-gradient: linear-gradient(
+    180deg,
+    rgba(201, 201, 201, 0.16) 0%,
+    rgba(199, 199, 199, 0.25) 100%
+  );
+
+  --sans: inter system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
+  font: 16px var(--sans);
+  font-size: 16px;
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
@@ -28,47 +50,41 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  @media (min-width: 1440px) {
+    font-size: 17px;
+    button {
+      font-size: 16px;
+    }
   }
 }
 
 :root::-webkit-scrollbar {
   display: none;
 }
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-} */
-
-/* body {
-  margin: 0;
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
 }
- */
+
+@utility bg-header {
+  background: var(--header-gradient);
+}
+
+@utility text-xxs {
+  font-size: 0.7rem;
+}
+@utility text-md {
+  font-size: 0.8125rem;
+}
+@utility sep-card {
+  @apply relative after:absolute after:right-0 after:top-1/2 after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-(--border) last:after:hidden;
+}
+
+@utility bg-center-right {
+  background-position: 65% 20%;
+}

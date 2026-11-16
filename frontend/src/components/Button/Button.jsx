@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import { LoaderCircle } from "lucide-react";
+import { icons, LoaderCircle } from "lucide-react";
 
-function Button({ label = "button", onClickFunction, className = "" }) {
-  const [processing, setProcessing] = useState(true);
-
+function Button({
+  label = "button",
+  onClickFunction,
+  className = "",
+  Icon,
+  iconSize = 20,
+}) {
+  const [processing, setProcessing] = useState(false);
   const handleClick = async (event) => {
     setProcessing(true);
     try {
@@ -14,23 +19,27 @@ function Button({ label = "button", onClickFunction, className = "" }) {
   };
 
   return (
-    <div className="w-full max-w-80">
-      <button
-        disabled={processing}
-        aria-busy={processing}
-        className={`h-11 bg-(--button) text-(--text) w-full  rounded-md border-0 outline-0 flex justify-center items-center`}
-        onClick={handleClick}
-      >
-        {processing ? (
-          <span className="inline-flex min-w-0 items-center justify-center gap-2">
-            <LoaderCircle className="animate-spin" />
-            <span className="truncate block ">Processing</span>
-          </span>
-        ) : (
-          <span className="">{label}</span>
-        )}
-      </button>
-    </div>
+    <button
+      disabled={processing}
+      aria-busy={processing}
+      key={label}
+      className={`h-10 bg-(--button) text-base text-(--text)  rounded-md border-2 border-(--border) outline-0 flex justify-center items-center p-2 ${className}`}
+      onClick={handleClick}
+    >
+      {processing ? (
+        // processing text
+        <span className="inline-flex min-w-0 items-center justify-center gap-2">
+          <LoaderCircle className="animate-spin" />
+          <span className="truncate block ">Processing</span>
+        </span>
+      ) : (
+        // default texts
+        <div className=" h-full flex gap-2 justify-center items-center text-nowrap leading-none">
+          <p className="text-md font-medium leading-none">{label}</p>
+          {Icon && <Icon size={iconSize} strokeWidth={3} />}
+        </div>
+      )}
+    </button>
   );
 }
 

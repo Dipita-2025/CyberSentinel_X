@@ -12,8 +12,16 @@ import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router";
 
 // pages
-import { Login, Signup } from "./pages/Auth/index.js";
+import Login from "./pages/Auth/Login/Login.jsx";
 import Homepage from "./pages/Homepage/Homepage.jsx";
+import DashboardLayout from "./layout/DashboardLayout.jsx";
+import {
+  Dashboard,
+  LiveEvents,
+  Incidents,
+  Settings,
+  Profile,
+} from "./pages/DashboardPages/index.js";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +37,30 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "signup",
-        element: <Signup />,
+        path: "dashboard",
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+          {
+            path: "live-events",
+            element: <LiveEvents />,
+          },
+          {
+            path: "incidents",
+            element: <Incidents />,
+          },
+          {
+            path: "settings",
+            element: <Settings />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
     ],
   },
