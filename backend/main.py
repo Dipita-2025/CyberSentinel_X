@@ -211,6 +211,30 @@ def get_applications(current_user: dict = Depends(require_admin)):
         "applications": applications
     }
 
+@app.get("/my-applications")
+def get_my_applications(
+    current_user: dict = Depends(get_current_user)
+):
+    role_name = current_user["role"]
+
+    permissions = get_role_permissions(role_name)
+
+    allowed_applications = []
+
+    if permissions:
+        allowed_applications = [
+            permission["app_name"]
+            for permission in permissions
+            if permission["app_name"] is not None
+            and permission["can_access"] == 1
+        ]
+
+    return {
+        "username": current_user["sub"],
+        "role": role_name,
+        "total_applications": len(allowed_applications),
+        "applications": allowed_applications
+    }
 
 @app.post("/applications")
 def add_application(
