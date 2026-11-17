@@ -12,7 +12,7 @@ import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router";
 
 // Layouts
-import { AuthLayout } from "./Layouts/index.js";
+import { AdminLayout, AuthLayout } from "./Layouts/index.js";
 
 // common pages
 import {
@@ -21,6 +21,16 @@ import {
   ChangePasswordPage,
   ForgetPasswordPage,
 } from "./Pages/common/index.js";
+
+// admin pages
+import {
+  CreateUserPage,
+  Dashboard,
+  EditUserPage,
+  RoleManagementPage,
+  UserDetailsPage,
+  UsersPage,
+} from "./Pages/Admin/index.js";
 
 // import Login from "./AuthForms/Login/Login.jsx";
 
@@ -32,6 +42,36 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <HomePage />,
+      },
+      {
+        path: "admin",
+        element: <AdminLayout />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+          {
+            path: "users",
+            element: <UsersPage />,
+          },
+          {
+            path: "roles",
+            element: <RoleManagementPage />,
+          },
+          {
+            path: "users/new",
+            element: <CreateUserPage />,
+          },
+          {
+            path: "users/:userId/edit",
+            element: <EditUserPage />,
+          },
+          {
+            path: "users/:userId",
+            element: <UserDetailsPage />,
+          },
+        ],
       },
       {
         path: "auth",

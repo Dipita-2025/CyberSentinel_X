@@ -55,6 +55,11 @@ from ml_model import predict_risk, feature_columns
 app = FastAPI()
 security = HTTPBearer(auto_error=False)
 
+# 1. Configure CORS
+origins = [
+    "http://localhost:5173",  # Vite default port
+    "http://localhost:3000",  # Create React App / Next.js default port
+]
 
 def get_current_user(
     credentials: HTTPAuthorizationCredentials | None = Depends(security)

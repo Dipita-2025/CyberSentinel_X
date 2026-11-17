@@ -1,16 +1,32 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Lock } from "lucide-react";
 import { Button, Input } from "../../Component";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/authSlice";
 
 function Login() {
-  const [username, setUsername] = useState("alex.morgan");
-  const [password, setPassword] = useState("sentinel2026");
+  const dispatch = useDispatch();
+  const [user, setUser] = useState({ username: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const previewInvalidCredentials = () => {
     setUsername("invalid.user");
     setPassword("wrongpassword");
+  };
+
+  const onLogin = async () => {
+    try {
+      const { data } = await axios.post("/api/login", user);
+      localStorage.setItem("accessToken", data.access_token);
+
+      dispatch(login(data));
+      navigate("/admin");
+    } catch (error) {
+      console.error(error.response?.data?.detail ?? error.message);
+    }
   };
 
   return (
@@ -37,11 +53,12 @@ function Login() {
           <Input
             name="Username"
             id="login-username"
-            value={username}
+            value={user.username}
             autoComplete="username"
-            onInputChange={(event) => setUsername(event.target.value)}
+            onInputChange={(event) =>
+              setUser({ ...user, username: event.target.value })
+            }
             labelClassName="text-caption font-normal text-(--text-muted)"
-            className="rounded-lg"
           />
         </div>
         <div>
@@ -50,9 +67,11 @@ function Login() {
               name="Password"
               id="login-password"
               type={showPassword ? "text" : "password"}
-              value={password}
+              value={user.password}
               autoComplete="current-password"
-              onInputChange={(event) => setPassword(event.target.value)}
+              onInputChange={(event) =>
+                setUser({ ...user, password: event.target.value })
+              }
               labelClassName="text-caption font-normal text-(--text-muted)"
               className="rounded-lg"
             />
@@ -73,6 +92,7 @@ function Login() {
           type="submit"
           className="w-full rounded-lg hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent-light)"
           contentClassName="w-full justify-start"
+          onClickFunction={onLogin}
         />
       </form>
 

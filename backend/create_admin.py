@@ -1,5 +1,5 @@
 
-from getpass import getpass
+# from getpass import getpass
 
 from database import (
     create_database,
@@ -24,7 +24,7 @@ def main():
     print("\nCreate your initial admin account")
 
     username = input("Enter admin username: ").strip()
-    password = getpass("Enter admin password: ")
+    password = input("Enter admin password: ").strip()
 
     if not username or not password:
         print("Username and password cannot be empty.")

@@ -98,13 +98,15 @@ function HomePage() {
   // dom
   return (
     <>
-      <div className="w-full min-h-screen h-fit card-padding bg-[url('/login.png')] bg-cover bg-no-repeat bg-center  flex flex-col gap-60">
-        <Logo />
-
+      <div className="w-full min-h-screen h-fit card-padding bg-[url('/bg.png')] bg-cover bg-no-repeat bg-top  flex flex-col gap-60">
         {/* hero section */}
-        <div className=" flex flex-col lg:flex-row justify-center items-center  gap-30">
+        <div className=" flex flex-col  lg:flex-row justify-center items-center  gap-30">
           {/* hero text */}
-          <div className="w-full lg:w-[60%]  flex flex-col gap-35  ">
+
+          <div className=" w-full h-fit  lg:w-[60%]  flex flex-col gap-35  ">
+            <div className="mb-150">
+              <Logo />
+            </div>
             <div className="w-fit text-caption text-(--text-muted) rounded-full flex gap-4 justify-center items-center bg-(--bg) py-4 px-20 border border-(--border)">
               <p>RBSC</p>
               <Dot />
@@ -124,7 +126,7 @@ function HomePage() {
               </div>
 
               {/* hero text */}
-              <p className="hidden md:block  text-body/1 text-(--text-muted)">
+              <p className="hidden xl:w-[60%] md:block  text-body/1 text-(--text-muted)">
                 CyberSentinel X continuously analyzes user behaviour, detects
                 potential threats and helps you respond intelligently-keeping
                 your people, data and systems secure
@@ -165,7 +167,7 @@ function HomePage() {
           </div>
 
           {/* hero card */}
-          <div className="w-full lg:w-[35%] max-w-500 bg-(--card) rounded-md p-20 border border-(--border) flex flex-col gap-20 ">
+          <div className="w-full lg:w-[35%] max-w-500 bg-(--card)/70 backdrop-blur-sm rounded-md p-20 border border-(--border) flex flex-col gap-20 ">
             <p className="text-body font-semibold">Live security decision</p>
             <p className="inline-flex gap-5 text-(--accent-light) text-caption items-center">
               <Activity size={20} />
@@ -292,8 +294,8 @@ function HomePage() {
           ))}
         </div>
         {/* </div> */}
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

@@ -12,7 +12,7 @@ function Input({
   Element,
 }) {
   return (
-    <>
+    <div>
       {/* label */}
       <label
         className={`text-body text-(--text-nuted) font-semibold block px-1 mb-8 ${labelClassName}`}
@@ -43,7 +43,7 @@ function Input({
         {/* any extra element (like password show button) */}
         {Element}
       </div>
-    </>
+    </div>
   );
 }
 

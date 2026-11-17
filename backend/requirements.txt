@@ -1,0 +1,7 @@
+fastapi
+pandas
+passlib==1.7.4
+bcrypt==4.0.1
+python-dotenv
+python-jose[cryptography]
+xgboost

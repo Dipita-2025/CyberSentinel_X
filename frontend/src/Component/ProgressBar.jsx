@@ -18,8 +18,8 @@ function ProgressBar({
       className={`w-full h-3 overflow-hidden rounded-full bg-(--border) ${className}`}
     >
       <div
-        className={`h-full rounded-full transition-[width] duration-300 }`}
-        style={{ width: `${value}%`, backgroundColor: `${color}` }}
+        className="h-full rounded-full transition-[width] duration-300"
+        style={{ width: `${progress}%`, backgroundColor: color }}
       />
     </div>
   );
