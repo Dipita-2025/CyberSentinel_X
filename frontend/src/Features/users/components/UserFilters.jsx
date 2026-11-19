@@ -1,74 +1,45 @@
-import Input from "../../../Component/Input";
-import { Button, SelectInput } from "../../../Component";
-import { DEFAULT_USER_ROLES } from "./userRoles";
-import { Search } from "lucide-react";
+import { Input, Select, Button } from "../../../components/ui";
 
 const roleOptions = [
-  { role_name: "all", label: "All roles" },
-  ...DEFAULT_USER_ROLES.map((role) => ({ role_name: role })),
+  { value: "admin", label: "Admin" },
+  { value: "security_analyst", label: "Security Analyst" },
+  { value: "developer", label: "Developer" },
+  { value: "employee", label: "Employee" },
 ];
 
-function UserFilters({
-  search = "",
-  role = "all",
-  status = "all",
-  roles = roleOptions,
-  showStatus = false,
+const UserFilters = ({
+  search,
   onSearchChange,
+  role,
   onRoleChange,
-  onStatusChange,
-  className = "",
-}) {
-  const roleSelectOptions = roles.map((option) => {
-    const value = typeof option === "string" ? option : option.role_name;
-    const label =
-      typeof option === "object" && option.label
-        ? option.label
-        : value.replace(/_/g, " ");
-
-    return { value, label };
-  });
-
+  onClear,
+}) => {
   return (
-    <section
-      aria-label="Filter users"
-      className={`bg-(--card) p-12 xl:p-20 rounded-md  grid grid-rows-3 xl:grid-cols-3 xl:grid-rows-1 gap-20 ${className}`}
-    >
-      <div className="flex">
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="flex-1">
         <Input
-          name="Search users"
-          id="users-search"
+          name="search"
           value={search}
-          onInputChange={(event) => onSearchChange?.(event.target.value)}
-          labelClassName="!text-(--text-muted)"
-          inputClassName="!bg-transparent !text-(--text)"
+          onChange={(e) => onSearchChange(e.target.value)}
+          placeholder="Search users..."
         />
-        <Button className="" label="" Icon={Search} />
       </div>
 
-      <SelectInput
-        id="users-role-filter"
-        label="Role"
-        value={role}
-        options={roleSelectOptions}
-        className="bg-(--card)"
-        onChange={onRoleChange}
-      />
+      <div className="w-full sm:w-52">
+        <Select
+          name="role"
+          value={role}
+          onChange={onRoleChange}
+          placeholder="All Roles"
+          options={roleOptions}
+        />
+      </div>
 
-      <SelectInput
-        id="users-status-filter"
-        label="Status"
-        value={status}
-        options={[
-          { value: "all", label: "All statuses" },
-          { value: "active", label: "Active" },
-          { value: "inactive", label: "Inactive" },
-        ]}
-        className="bg-(--card)"
-        onChange={onStatusChange}
-      />
-    </section>
+      <Button onClick={onClear} disabled={!search && role === "all"}>
+        Clear
+      </Button>
+    </div>
   );
-}
+};
 
 export default UserFilters;

@@ -1,104 +1,19 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-
-// store
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import store from "./store/store.js";
 
-// routing
-import { RouterProvider } from "react-router-dom";
-import { createBrowserRouter } from "react-router";
+import App from "./app/App";
+import store from "./app/store";
+import AuthProvider from "./app/AuthProvider";
 
-// Layouts
-import { AdminLayout, AuthLayout } from "./Layouts/index.js";
+import "./styles/index.css";
 
-// common pages
-import {
-  HomePage,
-  LoginPage,
-  ChangePasswordPage,
-  ForgetPasswordPage,
-} from "./Pages/common/index.js";
-
-// admin pages
-import {
-  CreateUserPage,
-  Dashboard,
-  EditUserPage,
-  RoleManagementPage,
-  UserDetailsPage,
-  UsersPage,
-} from "./Pages/Admin/index.js";
-
-// import Login from "./AuthForms/Login/Login.jsx";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "",
-        element: <HomePage />,
-      },
-      {
-        path: "admin",
-        element: <AdminLayout />,
-        children: [
-          {
-            path: "",
-            element: <Dashboard />,
-          },
-          {
-            path: "users",
-            element: <UsersPage />,
-          },
-          {
-            path: "roles",
-            element: <RoleManagementPage />,
-          },
-          {
-            path: "users/new",
-            element: <CreateUserPage />,
-          },
-          {
-            path: "users/:userId/edit",
-            element: <EditUserPage />,
-          },
-          {
-            path: "users/:userId",
-            element: <UserDetailsPage />,
-          },
-        ],
-      },
-      {
-        path: "auth",
-        element: <AuthLayout />,
-        children: [
-          {
-            path: "",
-            element: <LoginPage />,
-          },
-          {
-            path: "forget-password",
-            element: <ForgetPasswordPage />,
-          },
-          {
-            path: "change-password",
-            element: <ChangePasswordPage />,
-          },
-        ],
-      },
-    ],
-  },
-]);
-
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </Provider>
-  </StrictMode>,
+  </React.StrictMode>,
 );

@@ -1,0 +1,160 @@
+import { NavLink } from "react-router-dom";
+import {
+  LayoutDashboard,
+  Users,
+  Shield,
+  AppWindow,
+  KeyRound,
+  ClipboardList,
+  Activity,
+  CheckCircle,
+  Settings,
+  ShieldCheck,
+  X,
+} from "lucide-react";
+
+const NAVIGATION_ITEMS = [
+  {
+    label: "Overview",
+    path: "/admin/dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    label: "User Management",
+    path: "/admin/users",
+    icon: Users,
+  },
+  {
+    label: "Role Management",
+    path: "/admin/roles",
+    icon: Shield,
+  },
+  {
+    label: "Applications",
+    path: "/admin/applications",
+    icon: AppWindow,
+  },
+  {
+    label: "Permissions",
+    path: "/admin/permissions",
+    icon: KeyRound,
+  },
+  {
+    label: "Access Logs",
+    path: "/admin/logs",
+    icon: ClipboardList,
+  },
+  {
+    label: "Security Analytics",
+    path: "/admin/analytics",
+    icon: Activity,
+  },
+  {
+    label: "Approvals",
+    path: "/admin/approvals",
+    icon: CheckCircle,
+  },
+  {
+    label: "Settings",
+    path: "/admin/settings",
+    icon: Settings,
+  },
+];
+
+const AdminSidebar = ({ isOpen = true, onClose }) => {
+  return (
+    <>
+      {/* Mobile backdrop */}
+      {isOpen && (
+        <button
+          type="button"
+          aria-label="Close sidebar"
+          onClick={onClose}
+          className="fixed inset-0 z-40 bg-background/70 lg:hidden"
+        />
+      )}
+
+      <aside
+        className={`
+          fixed inset-y-0 left-0 z-50 flex w-64 flex-col
+          border-r border-border bg-sidebar
+          transition-transform duration-300
+          lg:fixed lg:z-50 lg:translate-x-0
+          
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+        `}
+      >
+        {/* Brand */}
+        <div className="flex h-18 shrink-0 items-center justify-between border-b border-border px-5">
+          <div className="flex items-center gap-3">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-accent text-primary-text">
+              <ShieldCheck size={23} />
+            </div>
+
+            <div>
+              <h1 className="text-base font-bold text-primary-text">
+                CyberSentinel
+              </h1>
+              <p className="text-caption text-muted">Security Platform</p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close sidebar"
+            className="rounded-lg p-2 text-muted hover:bg-elevated hover:text-primary-text lg:hidden"
+          >
+            <X size={19} />
+          </button>
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-5">
+          <p className="mb-3 px-3 text-caption font-semibold uppercase tracking-wider text-muted">
+            Administration
+          </p>
+
+          {NAVIGATION_ITEMS.map(({ label, path, icon: Icon }) => (
+            <NavLink
+              key={path}
+              to={path}
+              end={path === "/admin/dashboard"}
+              onClick={onClose}
+              className={({ isActive }) => `
+                flex items-center gap-3 rounded-lg px-3 py-2.5
+                text-body font-medium transition-colors
+                ${
+                  isActive
+                    ? "border border-accent/20 bg-accent/10 text-accent-light"
+                    : "text-muted hover:bg-elevated hover:text-primary-text"
+                }
+              `}
+            >
+              <Icon size={19} className="shrink-0" />
+              <span>{label}</span>
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Footer */}
+        <div className="shrink-0 border-t border-border p-4">
+          <div className="rounded-xl border border-border bg-card p-3">
+            <div className="flex items-center gap-2">
+              <div className="size-2 rounded-full bg-allow" />
+              <span className="text-caption font-medium text-primary-text">
+                System Status
+              </span>
+            </div>
+
+            <p className="mt-1 text-caption text-muted">
+              Security monitoring active
+            </p>
+          </div>
+        </div>
+      </aside>
+    </>
+  );
+};
+
+export default AdminSidebar;
