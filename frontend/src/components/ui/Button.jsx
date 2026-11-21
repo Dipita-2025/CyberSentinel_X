@@ -1,13 +1,14 @@
 import { LoaderCircle } from "lucide-react";
 
 const VARIANTS = {
-  primary: "border border-accent bg-accent text-primary-text hover:opacity-90",
+  primary:
+    "border border-accent bg-accent text-(--button-text)! hover:opacity-90",
 
   secondary:
-    "border border-border bg-elevated text-primary-text hover:border-accent",
+    "border border-accent-light! bg-elevated text-primary-text hover:border-accent",
 
   outline:
-    "border border-border bg-transparent text-primary-text hover:border-accent hover:bg-elevated",
+    "border-2 border-accent! bg-transparent text-(--accent)! hover:border-accent hover:bg-elevated",
 
   ghost:
     "border border-transparent bg-transparent text-muted hover:bg-elevated hover:text-primary-text",
@@ -56,7 +57,7 @@ const Button = ({
     >
       {loading && <LoaderCircle size={16} className="shrink-0 animate-spin" />}
 
-      <span className={`text-(--button-text) font-semibold ${display.trim()}`}>
+      <span className="inline-flex items-center justify-center gap-2 font-semibold text-inherit">
         {children}
       </span>
     </button>

@@ -6,7 +6,7 @@ import {
 } from "recharts";
 
 const PieChart = ({ data = [], total = 0 }) => {
-  // const chartData = data.filter((item) => item.value > 0);
+  const chartData = data.filter((item) => item.value > 0);
 
   return (
     <div className="relative h-64 w-full min-w-0">

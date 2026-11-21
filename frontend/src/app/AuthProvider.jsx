@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setCredentials, logout } from "../features/auth/AuthSlice";
+import { setCredentials, logout } from "../Store/Slice/authSlice";
 import { authService } from "../services";
 
 const AuthProvider = ({ children }) => {

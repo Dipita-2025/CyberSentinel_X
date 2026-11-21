@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { Notification, Modal, Button } from "../../components/ui";
+import { Modal, Button } from "../../components/ui";
 import {
   UserTable,
   UserFilters,
@@ -11,12 +11,13 @@ import {
 
 import { userService } from "../../services";
 import { filterUsers } from "../../utils";
+import { Plus } from "lucide-react";
 
-const handleEditUser = (user) => {
-  setSelectedUser(user);
-};
+import { useDispatch } from "react-redux";
+import { showNotification } from "../../Store/Slice/notificationSlice";
 
 const Users = () => {
+  const dispatch = useDispatch();
   const [updating, setUpdating] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -25,11 +26,6 @@ const Users = () => {
   const [search, setSearch] = useState("");
   const [role, setRole] = useState("all");
   const [loading, setLoading] = useState(true);
-  const [notification, setNotification] = useState({
-    type: "error",
-    message: "",
-  });
-
   const handleEditUser = (user) => {
     setSelectedUser(user);
   };
@@ -51,11 +47,6 @@ const Users = () => {
         await userService.updateUserRole(newUsername, formData.role);
       }
 
-      setNotification({
-        type: "success",
-        message: "User updated successfully.",
-      });
-
       setSelectedUser(null);
       await fetchUsers();
     } catch (error) {
@@ -67,10 +58,14 @@ const Users = () => {
           ? detail
           : "Failed to update user.";
 
-      setNotification({
-        type: "error",
-        message: errorMessage,
-      });
+      dispatch(
+        showNotification({
+          message: errorMessage,
+          type: "error",
+        }),
+      );
+    } finally {
+      setUpdating(false);
     }
   };
 
@@ -78,20 +73,24 @@ const Users = () => {
     try {
       setCreating(true);
 
-      const response = await userService.createUser(formData);
-
-      setNotification({
-        type: "success",
-        message: response.message || "User created successfully.",
-      });
+      await userService.createUser(formData);
 
       setIsCreateModalOpen(false);
       await fetchUsers();
+
+      dispatch(
+        showNotification({
+          message: "User created successfully.",
+          type: "success",
+        }),
+      );
     } catch (error) {
-      setNotification({
-        type: "error",
-        message: error.response?.data?.detail || "Failed to create user.",
-      });
+      dispatch(
+        showNotification({
+          message: error.response?.data?.detail || "Failed to create user.",
+          type: "error",
+        }),
+      );
     } finally {
       setCreating(false);
     }
@@ -102,13 +101,15 @@ const Users = () => {
       setLoading(true);
 
       const response = await userService.getUsers();
-
+      dispatch(
+        showNotification({
+          message: "User updated successfully.",
+          type: "success",
+        }),
+      );
       setUsers(response.users || []);
     } catch (error) {
-      setNotification({
-        type: "error",
-        message: error.response?.data?.detail || "Failed to fetch users.",
-      });
+      console.error(error.response?.data?.detail || "Failed to fetch users.");
     } finally {
       setLoading(false);
     }
@@ -137,15 +138,11 @@ const Users = () => {
 
       {/* create user */}
       <div className="flex justify-end">
-        <Button onClick={() => setIsCreateModalOpen(true)}>Create User</Button>
+        <Button onClick={() => setIsCreateModalOpen(true)}>
+          <Plus size={18} strokeWidth={3} />
+          <span>Create User</span>
+        </Button>
       </div>
-
-      {/* Notification */}
-      <Notification
-        type={notification.type}
-        message={notification.message}
-        onClose={() => setNotification({ type: "error", message: "" })}
-      />
 
       {/* User Filters */}
       <UserFilters

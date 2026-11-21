@@ -12,7 +12,15 @@ import {
 import MainLayout from "../layouts/MainLayout";
 
 import Login from "../pages/auth/Login";
-import { AdminOverview, Users } from "../pages/admin";
+import {
+  AdminOverview,
+  Users,
+  Applications,
+  Roles,
+  Permissions,
+  AccessLogs,
+  SecurityAnalytics,
+} from "../pages/admin";
 import AnalystOverview from "../pages/analyst/AnalystOverview";
 import DeveloperOverview from "../pages/developer/DeveloperOverview";
 import EmployeeOverview from "../pages/employee/EmployeeOverview";
@@ -47,6 +55,26 @@ const router = createBrowserRouter([
               {
                 path: "/admin/users",
                 element: <Users />,
+              },
+              {
+                path: "/admin/applications",
+                element: <Applications />,
+              },
+              {
+                path: "/admin/roles",
+                element: <Roles />,
+              },
+              {
+                path: "/admin/permissions",
+                element: <Permissions />,
+              },
+              {
+                path: "/admin/logs",
+                element: <AccessLogs />,
+              },
+              {
+                path: "/admin/analytics",
+                element: <SecurityAnalytics />,
               },
             ],
           },

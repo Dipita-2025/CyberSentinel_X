@@ -32,13 +32,16 @@ const Pagination = ({
       </p>
 
       <div className="flex items-center justify-between gap-4 sm:justify-end">
+        {/* Page Size */}
         <div className="flex items-center gap-2">
           <span className="text-caption text-muted">Rows:</span>
 
           <Select
+            placeholder=""
             name="pageSize"
             value={String(pageSize)}
             onChange={onPageSizeChange}
+            className="border-accent!"
             options={[
               { value: "5", label: "5" },
               { value: "10", label: "10" },
@@ -48,17 +51,20 @@ const Pagination = ({
           />
         </div>
 
+        {/* Pagination Controls */}
         <div className="flex items-center gap-2">
+          {/* Previous */}
           <Button
             size="sm"
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="p-2"
+            className="p-2 text-white"
             aria-label="Previous page"
           >
             <ChevronLeft size={16} strokeWidth={3} />
           </Button>
 
+          {/* Page Numbers */}
           <div className="flex items-center gap-1">
             {getVisiblePages().map((page) => (
               <Button
@@ -66,18 +72,19 @@ const Pagination = ({
                 variant={currentPage === page ? "primary" : "outline"}
                 size="sm"
                 onClick={() => onPageChange(page)}
-                className="min-w-9 px-2"
+                className="min-w-9 px-2 text-white"
               >
                 {page}
               </Button>
             ))}
           </div>
 
+          {/* Next */}
           <Button
             size="sm"
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="p-2"
+            className="p-2 text-white"
             aria-label="Next page"
           >
             <ChevronRight size={16} strokeWidth={3} />

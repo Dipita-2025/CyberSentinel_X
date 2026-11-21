@@ -1,6 +1,6 @@
 import { LineChart } from "../../../components/charts";
 
-const AccessActivityChart = ({ data = [] }) => {
+const AccessActivityChart = ({ data = [], loading = false }) => {
   return (
     <section className="card-base min-w-0 p-4 sm:p-5">
       <div className="mb-6">
@@ -15,7 +15,11 @@ const AccessActivityChart = ({ data = [] }) => {
         </div>
       </div>
 
-      {data.length === 0 ? (
+      {loading ? (
+        <div className="flex h-72 items-center justify-center text-body text-muted">
+          Loading access activity...
+        </div>
+      ) : data.length === 0 ? (
         <div className="flex h-72 items-center justify-center text-body text-muted">
           No access activity data available.
         </div>

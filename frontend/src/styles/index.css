@@ -21,7 +21,7 @@
   /* Buttons */
   --button: #3b82f6;
   --button-hover: #2563eb;
-  --button-text: #000513;
+  --button-text: #000000;
 
   /* Typography */
   --text: #f1f5f9;
@@ -34,8 +34,11 @@
 
   /* Access decisions */
   --allow: #22c55e;
+  --allow: #22c55e;
+  --review: #f59e0b;
   --review: #f59e0b;
   --blocked: #ef4444;
+  --blocked: #ef44444b;
 
   /* AI and trust engine */
   --ai: #a78bfa;
@@ -135,7 +138,6 @@ body {
   min-height: 100vh;
 }
 
-button,
 input,
 textarea,
 select {
@@ -178,7 +180,7 @@ button:disabled {
 }
 
 @utility text-caption {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
 }
 

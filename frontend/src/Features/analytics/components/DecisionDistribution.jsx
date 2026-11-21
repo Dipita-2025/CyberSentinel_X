@@ -6,22 +6,19 @@ const DECISION_COLORS = {
   BLOCK: "var(--blocked)",
 };
 
-const DecisionDistribution = ({
-  data = [
-    { name: "ALLOW", value: 120 },
-    { name: "REVIEW", value: 35 },
-    { name: "BLOCK", value: 20 },
-  ],
-}) => {
+const DecisionDistribution = ({ data = [], loading = false }) => {
   const chartData = data.map((item) => ({
     ...item,
-    color: DECISION_COLORS[item.name],
+    color: DECISION_COLORS[item.name] || "var(--text-muted)",
   }));
 
-  const total = chartData.reduce((sum, item) => sum + item.value, 0);
+  const total = chartData.reduce(
+    (sum, item) => sum + (Number(item.value) || 0),
+    0,
+  );
 
   return (
-    <div className="card-base  min-w-0 p-4 sm:p-5">
+    <div className="card-base min-w-0 p-4 sm:p-5">
       <div className="mb-5">
         <h3 className="text-head-sec text-primary-text">
           Decision Distribution
@@ -32,7 +29,11 @@ const DecisionDistribution = ({
         </p>
       </div>
 
-      {total === 0 ? (
+      {loading ? (
+        <div className="flex h-64 items-center justify-center text-body text-muted">
+          Loading decision data...
+        </div>
+      ) : total === 0 ? (
         <div className="flex h-64 items-center justify-center text-body text-muted">
           No decision data available.
         </div>
@@ -42,7 +43,7 @@ const DecisionDistribution = ({
             <PieChart data={chartData} total={total} />
           </div>
 
-          <div className="flex w-full flex-col gap-2 sm:w-1/2 border p-5 rounded-md border-border bg-sidebar">
+          <div className="flex w-full flex-col gap-2 rounded-md border border-border bg-sidebar p-5 sm:w-1/2">
             {chartData
               .filter((item) => item.value > 0)
               .map((item) => {

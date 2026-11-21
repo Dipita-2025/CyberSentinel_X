@@ -7,9 +7,11 @@ import {
   Zap,
   LockKeyhole,
 } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { showNotification } from "../../Store/Slice/notificationSlice";
 
 import { LoginForm } from "../../features/auth/components";
-import { Logo } from "../../components/ui";
+import { Logo, Button } from "../../components/ui";
 
 const features = [
   {
@@ -45,6 +47,7 @@ const features = [
 ];
 
 const Login = () => {
+  const dispatch = useDispatch();
   return (
     <main className="relative min-h-screen overflow-hidden bg-[url('/login.png')] bg-background bg-cover bg-center bg-no-repeat">
       {/* Background overlay */}

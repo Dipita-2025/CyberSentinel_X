@@ -29,7 +29,7 @@ const Select = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           disabled={disabled}
-          className={`w-full appearance-none rounded-lg border border-border bg-card px-4 py-2 pr-10 text-body text-primary-text transition-colors focus:border-accent disabled:cursor-not-allowed disabled:opacity-50 ${
+          className={`w-full appearance-none rounded-lg border-2 border-accent bg-card px-4 py-1.5 pr-10 text-body text-primary-text transition-colors focus:border-accent focus:outline-0 disabled:cursor-not-allowed disabled:opacity-50 ${
             error ? "border-blocked" : ""
           } ${className}`}
         >

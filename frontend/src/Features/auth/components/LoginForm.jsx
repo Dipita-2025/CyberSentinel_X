@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 
-import { Button, Input, Notification } from "../../../components/ui";
+import { Button, Input } from "../../../components/ui";
 
-import { setCredentials, logout } from "../AuthSlice";
+import { setCredentials, logout } from "../../../Store/Slice/authSlice";
+import { showNotification } from "../../../Store/Slice/notificationSlice";
+
 import authService from "../../../services/authService";
 
 const ROLE_ROUTES = {
@@ -25,8 +27,6 @@ const LoginForm = () => {
   });
 
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -36,19 +36,18 @@ const LoginForm = () => {
       ...prev,
       [name]: value,
     }));
-
-    setError("");
-    setSuccess("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setError("");
-    setSuccess("");
-
     if (!formData.username.trim() || !formData.password) {
-      setError("Please enter your username and password.");
+      dispatch(
+        showNotification({
+          message: "Please enter your username and password.",
+          type: "error",
+        }),
+      );
       return;
     }
 
@@ -65,7 +64,13 @@ const LoginForm = () => {
       if (!destination) {
         authService.logout();
         dispatch(logout());
-        setError("Your account has an unsupported role.");
+
+        dispatch(
+          showNotification({
+            message: "Your account has an unsupported role.",
+            type: "error",
+          }),
+        );
         return;
       }
 
@@ -76,14 +81,23 @@ const LoginForm = () => {
         }),
       );
 
-      setSuccess("Login successful. Redirecting to your dashboard...");
+      dispatch(
+        showNotification({
+          message: "Login successful! Welcome back.",
+          type: "success",
+        }),
+      );
 
       navigate(destination, { replace: true });
     } catch (err) {
-      setError(
-        err.response?.data?.detail ||
-          err.message ||
-          "Unable to log in. Please try again.",
+      dispatch(
+        showNotification({
+          message:
+            err.response?.data?.detail ||
+            err.message ||
+            "Unable to log in. Please try again.",
+          type: "error",
+        }),
       );
     } finally {
       setLoading(false);
@@ -154,20 +168,6 @@ const LoginForm = () => {
             Forgot password?
           </Link>
         </div>
-      </div>
-
-      <div className="space-y-3">
-        <Notification
-          type="error"
-          message={error}
-          onClose={() => setError("")}
-        />
-
-        <Notification
-          type="success"
-          message={success}
-          onClose={() => setSuccess("")}
-        />
       </div>
 
       <Button

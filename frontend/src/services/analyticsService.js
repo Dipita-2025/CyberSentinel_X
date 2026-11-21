@@ -1,7 +1,7 @@
 import api from "../config/api";
 
 const analyticsService = {
-  getDashboardStats: async () => {
+  getDashboardData: async () => {
     const [users, applications, roles, logs] = await Promise.all([
       api.get("/users"),
       api.get("/applications"),
@@ -10,16 +10,14 @@ const analyticsService = {
     ]);
 
     return {
-      totalUsers: users.data.total_users,
-      totalApplications: applications.data.total_applications,
-      totalRoles: roles.data.total_roles,
-      totalRequests: logs.data.total_logs,
+      stats: {
+        totalUsers: users.data.total_users,
+        totalApplications: applications.data.total_applications,
+        totalRoles: roles.data.total_roles,
+        totalRequests: logs.data.total_logs,
+      },
+      logs: logs.data.logs || [],
     };
-  },
-
-  getAccessLogs: async () => {
-    const response = await api.get("/logs");
-    return response.data.logs || [];
   },
 };
 
