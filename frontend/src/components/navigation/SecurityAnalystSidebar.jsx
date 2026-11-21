@@ -7,6 +7,7 @@ import {
   CheckCircle,
   FileText,
   ShieldCheck,
+  UserRound,
   X,
 } from "lucide-react";
 
@@ -17,6 +18,7 @@ const NAVIGATION_ITEMS = [
   { label: "ML Analytics", path: "/analyst/analytics", icon: BrainCircuit },
   { label: "Review Requests", path: "/analyst/reviews", icon: CheckCircle },
   { label: "Reports", path: "/analyst/reports", icon: FileText },
+  { label: "My Profile", path: "/profile", icon: UserRound },
 ];
 
 const SecurityAnalystSidebar = ({ isOpen = true, onClose }) => {

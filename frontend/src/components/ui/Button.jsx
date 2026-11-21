@@ -13,7 +13,8 @@ const VARIANTS = {
   ghost:
     "border border-transparent bg-transparent text-muted hover:bg-elevated hover:text-primary-text",
 
-  danger: "border border-blocked bg-blocked text-primary-text hover:opacity-90",
+  danger:
+    "border border-blocked bg-(--blocked) text-primary-text hover:opacity-90",
 };
 
 const SIZES = {

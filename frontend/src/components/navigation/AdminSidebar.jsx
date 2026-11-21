@@ -10,6 +10,7 @@ import {
   CheckCircle,
   Settings,
   ShieldCheck,
+  UserRound,
   X,
 } from "lucide-react";
 
@@ -58,6 +59,11 @@ const NAVIGATION_ITEMS = [
     label: "Settings",
     path: "/admin/settings",
     icon: Settings,
+  },
+  {
+    label: "My Profile",
+    path: "/profile",
+    icon: UserRound,
   },
 ];
 

@@ -34,11 +34,8 @@
 
   /* Access decisions */
   --allow: #22c55e;
-  --allow: #22c55e;
-  --review: #f59e0b;
   --review: #f59e0b;
   --blocked: #ef4444;
-  --blocked: #ef44444b;
 
   /* AI and trust engine */
   --ai: #a78bfa;

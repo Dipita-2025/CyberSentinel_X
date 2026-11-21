@@ -25,6 +25,7 @@ const NAVIGATION_ITEMS = [
   { label: "Request Access", path: "/developer/request-access", icon: Send },
   { label: "My Access History", path: "/developer/history", icon: History },
   { label: "Profile", path: "/developer/profile", icon: UserRound },
+  { label: "My Profile", path: "/profile", icon: UserRound },
 ];
 
 const DeveloperSidebar = ({ isOpen = true, onClose }) => {

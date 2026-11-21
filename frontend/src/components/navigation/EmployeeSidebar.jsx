@@ -20,7 +20,7 @@ const NAVIGATION_ITEMS = [
   { label: "My Information", path: "/employee/information", icon: Users },
   { label: "Request Access", path: "/employee/request-access", icon: Send },
   { label: "My Access History", path: "/employee/history", icon: History },
-  { label: "Profile", path: "/employee/profile", icon: UserRound },
+  { label: "Profile", path: "/profile", icon: UserRound },
 ];
 
 const EmployeeSidebar = ({ isOpen = true, onClose }) => {

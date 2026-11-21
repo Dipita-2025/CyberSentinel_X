@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Landing from "../pages/common/Landing";
+import { Landing, Profile } from "../pages/common";
 
 import {
   ProtectedRoute,
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
       {
         element: <MainLayout />,
         children: [
+          {
+            path: "/profile",
+            element: <Profile />,
+          },
           {
             element: <RoleRoute allowedRoles={["admin"]} />,
             children: [
